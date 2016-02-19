@@ -8,6 +8,12 @@ A collection of awesome HTML & CSS goodies (formats,  tools, templates, tips & t
 NOTE: For news about building books with static site builders (e.g. Jekyll 'n' friends) follow [@statictimes](https://twitter.com/statictimes) on Twitter.
 
 
+## print.css Articles
+
+[**How To Set Up A Print Style Sheet**](https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet) by Christian Krammer; November 2011; Smashing Magazine
+
+
+
 ## Boom!
 
 _a microformat for books_
