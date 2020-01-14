@@ -39,6 +39,7 @@ _(Upcoming) css standards & recommendations_
 _To educate and inspire publishers to use HTML, CSS and JavaScript to produce print and paginated electronic content_
 
 - [**pagedmedia.org**](https://pagedmedia.org)
+  - [**Paged.js**](https://www.pagedmedia.org/paged-js/) - an open-source library to paginate content in the browser
 
 
 
