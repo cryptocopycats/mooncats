@@ -29,18 +29,25 @@ _a microformat for books_
 
 ## Paged Media 
 
-_(upcoming) css standards & recommendations_
+_(Upcoming) css standards & recommendations_
 
 - [**CSS Paged Media Module**](https://www.w3.org/TR/css-page-3/) - World Wide Web Consortium (W3C) Working Draft - specifies how pages are generated and laid out to hold fragmented content in a paged presentation. It adds functionality for controlling page margins, page size and orientation, and headers and footers, and extends generated content to enable page numbering and running headers / footers... 
 
+
+## Paged Media.org Initiative
+
+_To educate and inspire publishers to use HTML, CSS and JavaScript to produce print and paginated electronic content_
+
+- [**pagedmedia.org**](https://pagedmedia.org)
 
 
 
 ## Structured Text with Formatting Conventions in Markdown
 
-_modern hypertext markup in easy-to-read and easy-to-write ye olde plain vanilla text_
+_Modern hypertext markup in easy-to-read and easy-to-write ye olde plain vanilla text_
 
 See the **Awesome Markdown List @ Mundi Mark** (github: [mundimark/awesome-markdown](https://github.com/mundimark/awesome-markdown)) ».
+
 
 
 
