@@ -5,7 +5,7 @@ A collection of awesome HTML & CSS goodies (formats,  tools, templates, tips & t
 #### _Contributions welcome. Anything missing? Send in a pull request. Thanks._
 
 
-NOTE: For news about building books with static site builders (e.g. Jekyll 'n' friends) follow [@statictimes](https://twitter.com/statictimes) on Twitter.
+NOTE: For news about building books with static site builders (e.g. Jekyll 'n' friends) follow [@manuscriptsnews](https://twitter.com/manuscriptsnews) on Twitter.
 
 
 ## print.css Articles
