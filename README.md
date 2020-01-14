@@ -12,7 +12,7 @@ NOTE: For news about building books with static site builders (e.g. Jekyll 'n' f
 
 [**How To Set Up A Print Style Sheet**](https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet) by Christian Krammer; November 2011; Smashing Magazine
 
-
+[**Designing For Print With CSS**](https://www.smashingmagazine.com/2015/01/designing-for-print-with-css) by Rachel Andrew; January 2015; Smashing Magazine
 
 ## Boom!
 
