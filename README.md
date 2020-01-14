@@ -27,7 +27,16 @@ _a microformat for books_
 - **Boom! Jekyll Starter Template** (github: [henrythemes/jekyll-boom-theme](https://github.com/henrythemes/jekyll-boom-theme))
 
 
-## Markdown
+## Paged Media 
+
+_(upcoming) css standards & recommendations_
+
+- [**CSS Paged Media Module**](https://www.w3.org/TR/css-page-3/) - World Wide Web Consortium (W3C) Working Draft - specifies how pages are generated and laid out to hold fragmented content in a paged presentation. It adds functionality for controlling page margins, page size and orientation, and headers and footers, and extends generated content to enable page numbering and running headers / footers... 
+
+
+
+
+## Structured Text with Formatting Conventions in Markdown
 
 _modern hypertext markup in easy-to-read and easy-to-write ye olde plain vanilla text_
 
