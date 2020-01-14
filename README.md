@@ -5,7 +5,7 @@ A collection of awesome HTML & CSS goodies (formats,  tools, templates, tips & t
 #### _Contributions welcome. Anything missing? Send in a pull request. Thanks._
 
 
-NOTE: For news about building books with static site builders (e.g. Jekyll 'n' friends) follow [@manuscriptsnews](https://twitter.com/manuscriptsnews) on Twitter.
+NOTE: For news about building books with static website builders / compilers (e.g. Jekyll 'n' friends) follow [@manuscriptsnews](https://twitter.com/manuscriptsnews) on Twitter.
 
 
 ## print.css Articles
@@ -26,7 +26,8 @@ _a microformat for books_
 
 _modern hypertext markup in easy-to-read and easy-to-write ye olde plain vanilla text_
 
-See the **Awesome Markdown List @ Write Kit** (github: [writekit/awesome-markdown](https://github.com/writekit/awesome-markdown)) ».
+See the **Awesome Markdown List @ Mundi Mark** (github: [mundimark/awesome-markdown](https://github.com/mundimark/awesome-markdown)) ».
+
 
 
 ## Meta
