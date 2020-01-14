@@ -16,6 +16,8 @@ NOTE: For news about building books with static website builders / compilers (e.
 
 [**A Guide To The State Of Print Stylesheets In 2018**](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/) by Rachel Andrew; May 2018; Smashing Magazine
 
+[**I totally forgot about print style sheets**](https://www.matuzo.at/blog/i-totally-forgot-about-print-style-sheets/) by Manuel Matuzovic; November 2016 - A small collection of useful CSS techniques and a quick reminder that print style sheets are still a thing.
+
 
 ## Boom!
 
