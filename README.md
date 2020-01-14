@@ -14,6 +14,9 @@ NOTE: For news about building books with static website builders / compilers (e.
 
 [**Designing For Print With CSS**](https://www.smashingmagazine.com/2015/01/designing-for-print-with-css) by Rachel Andrew; January 2015; Smashing Magazine
 
+[**A Guide To The State Of Print Stylesheets In 2018**](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/) by Rachel Andrew; May 2018; Smashing Magazine
+
+
 ## Boom!
 
 _a microformat for books_
