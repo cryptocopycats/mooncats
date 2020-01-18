@@ -34,7 +34,13 @@ _a microformat for books_
 
 _(Upcoming) css standards & recommendations_
 
-- [**CSS Paged Media Module**](https://www.w3.org/TR/css-page-3/) - World Wide Web Consortium (W3C) Working Draft - specifies how pages are generated and laid out to hold fragmented content in a paged presentation. It adds functionality for controlling page margins, page size and orientation, and headers and footers, and extends generated content to enable page numbering and running headers / footers... 
+- [**CSS Paged Media Module @ W3C**](https://www.w3.org/TR/css-page-3/) - World Wide Web Consortium (W3C) Working Draft - specifies how pages are generated and laid out to hold fragmented content in a paged presentation. It adds functionality for controlling page margins, page size and orientation, and headers and footers, and extends generated content to enable page numbering and running headers / footers... 
+
+- [**CSS Paged-Media @ Mozilla Docs**](https://developer.mozilla.org/en-US/docs/Web/CSS/@page) - The `@page` CSS at-rule is used to modify some CSS properties when printing a document. You can't change all CSS properties with `@page`. You can only change the margins, orphans, widows, and page breaks of the document..
+
+- [**Can I use ...? Browser Support for CSS Paged-Media**](https://caniuse.com/#feat=css-paged-media) - CSS at-rule (`@page`) to define page-specific rules when printing web pages, such as margin per page and page dimensions
+
+
 
 
 ## Paged Media.org Initiative
