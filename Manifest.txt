@@ -1,0 +1,10 @@
+CHANGELOG.md
+LICENSE.md
+Manifest.txt
+README.md
+Rakefile
+bin/mooncat
+lib/mooncats.rb
+lib/mooncats/designs.rb
+lib/mooncats/image.rb
+lib/mooncats/version.rb

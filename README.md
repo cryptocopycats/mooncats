@@ -77,11 +77,11 @@ printing:
 ```
     setting zoom to 2x
 ==> (1/3) minting mooncat 0x00000800fa; writing to >./mooncat-00000800fa_x2.png<...
-          design #0 (21x17)
+            design #0 (21x17)
 ==> (2/3) minting mooncat 0x0077c8278d; writing to >./mooncat-0077c8278d_x2.png<...
-          design #119 (20x21)
+            design #119 (20x21)
 ==> (3/3) minting mooncat 0xff5f000ca7; writing to >./mooncat-ff5f000ca7_x2.png<...
-          design #95 (20x21)
+            design #95 (20x21)
 ```
 
 And voila!
