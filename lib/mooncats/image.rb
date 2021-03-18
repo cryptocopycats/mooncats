@@ -7,30 +7,23 @@ COLORS_GENESIS_WHITE = ['#555555', '#d3d3d3', '#ffffff', '#aaaaaa', '#ff9999']
 COLORS_GENESIS_BLACK = ['#555555', '#222222', '#111111', '#bbbbbb', '#ff9999']
 
 
-def self.generate( cat_id, zoom: 1 )
-  bytes = hex_to_bytes( cat_id )
+def self.generate( id, zoom: 1 )
+  meta = Metadata.new( id )
 
-  genesis = bytes[0] != 0   ## note: convert to bool (if zero assume NOT genesis)
-  k       = bytes[1]
-  r       = bytes[2]
-  g       = bytes[3]
-  b       = bytes[4]
-
-  invert = k >= 128
-  design = k % 128
-
-  colors = if genesis
-              if design % 2 === 0 && invert ||
-                 design % 2 === 1 && !invert
+  colors = if meta.genesis?
+              if meta.design % 2 === 0 && meta.invert? ||
+                 meta.design % 2 === 1 && !meta.invert?
                  COLORS_GENESIS_WHITE
               else
                  COLORS_GENESIS_BLACK
               end
            else
-             derive_palette( r, g, b, invert: invert )
+             derive_palette( meta.r,
+                             meta.g,
+                             meta.b, invert: meta.invert? )
            end
 
-  new( design: design,
+  new( design: meta.design,
        colors: colors,
        zoom:   zoom )
 end
@@ -80,31 +73,19 @@ end
 #####
 # (image) delegates
 ##   todo/check: add some more??
-def save( path )   @cat.save( path ); end
+def save( path, constraints = {} )
+  @cat.save( path, constraints )
+end
+
 def width()        @cat.width; end
 def height()       @cat.height; end
 
+## return image ref - use a different name - why? why not?
+def image()        @cat; end
 
 
 ##################
 #  (static) helpers
-def self.hex_to_bytes( str_or_num )
-  if str_or_num.is_a?( Integer )  ## allow passing in of integer to e.g. 0x... etc.
-     num = str_or_num
-     str = '%010x' % num    # 5 bytes (10 hex digits/chars)
-  else ## assume string
-     ## cut-off optionial 0x
-     str = str_or_num
-     str = str.downcase
-     str = str[2..-1]  if str.start_with?( '0x')
-  end
-
-  raise ArgumentError, "expected 5 byte hex string (10 digits/chars); got #{str_or_num}"   if str.size != 10
-
-  bytes = [str].pack('H*').bytes
-  bytes
-end
-
 def self.derive_palette( r, g, b, invert: false )
   ## note: Color.rgb returns an Integer (e.g. 34113279 - true color or just hex rgba or?)
   rgb = ChunkyPNG::Color.rgb( r, g, b )
