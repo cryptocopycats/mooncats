@@ -10,9 +10,11 @@ COLORS_GENESIS_BLACK = ['#555555', '#222222', '#111111', '#bbbbbb', '#ff9999']
 def self.generate( id, zoom: 1 )
   meta = Metadata.new( id )
 
+  design = meta.design.to_i   # note: meta.design is a struct/object - keep/use a local int !!!
+
   colors = if meta.genesis?
-              if meta.design % 2 === 0 && meta.invert? ||
-                 meta.design % 2 === 1 && !meta.invert?
+              if design % 2 == 0 && meta.invert? ||
+                 design % 2 == 1 && !meta.invert?
                  COLORS_GENESIS_WHITE
               else
                  COLORS_GENESIS_BLACK
@@ -23,7 +25,7 @@ def self.generate( id, zoom: 1 )
                              meta.b, invert: meta.invert? )
            end
 
-  new( design: meta.design,
+  new( design: design,
        colors: colors,
        zoom:   zoom )
 end

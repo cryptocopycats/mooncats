@@ -35,27 +35,29 @@ FACINGS = [
 class Metadata
 
   class Design ## nested classed  - why? lets you use Metadata::Design "standalone", that is, without 5-byte id
-    def initialize( design )   # 0-127 design num(ber)
-      @design = design
+    def initialize( num )   # 0-127 design num(ber)
+      @num = num
     end
 
-    def design_bits  ## keep private / internal - why? why not?
+    def to_i() @num; end
+
+    def bits  ## keep private / internal - why? why not?
       ## keep 128 possible designs 0 to 127
       ##   as 7 bit string e.g. 01010111  for now - why? why not?
-      @design_bits ||= '%08b' % @design
+      @bits ||= '%08b' % @num
     end
 
     def facing
-      @facing ||= FACINGS[ design_bits[1,1].to_i(2) ]  ## use desgin > 63 instead  - why? why not?
+      @facing ||= FACINGS[ bits[1,1].to_i(2) ]  ## use desgin > 63 instead  - why? why not?
     end
     def face
-      @face ||= FACES[ design_bits[2,2].to_i(2) ]
+      @face ||= FACES[ bits[2,2].to_i(2) ]
     end
     def fur
-      @fur ||= FURS[ design_bits[4,2].to_i(2) ]
+      @fur ||= FURS[ bits[4,2].to_i(2) ]
     end
     def pose
-      @poses ||= POSES[ design_bits[6,2].to_i(2) ]   ##  use design % 4 instead - why? why not?
+      @poses ||= POSES[ bits[6,2].to_i(2) ]   ##  use design % 4 instead - why? why not?
     end
   end  ## (nested) class Metadata::Design
 
@@ -82,20 +84,20 @@ class Metadata
   def g() @bytes[3]; end
   def b() @bytes[4]; end
 
+  def rgb() [r,g,b]; end   ## add rgb shortcut helper - why? why not?
 
   def invert?() k >= 128; end
-  def design()  k % 128; end
   def pattern() k % 64; end   ## treat facing left|right as the same
 
 
-  def design_meta
-    @design_meta ||= Design.new( design )
+  def design
+    @design ||= Design.new( k % 128 )
   end
 
-  def facing()  @design_meta.facing; end
-  def face()    @design_meta.face; end
-  def fur()     @design_meta.fur; end
-  def pose()    @design_meta.pose; end
+  def facing()  design.facing; end
+  def face()    design.face; end
+  def fur()     design.fur; end
+  def pose()    design.pose; end
 
 
   ####
@@ -112,8 +114,9 @@ class Metadata
      when :r       then r
      when :g       then g
      when :b       then b
+     when :rgb     then rgb
      when :invert  then invert?
-     when :design  then design
+     when :design  then design.to_i
      when :pattern then pattern
      when :facing  then facing
      when :face    then face
