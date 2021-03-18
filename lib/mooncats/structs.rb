@@ -34,6 +34,34 @@ FACINGS = [
 
 class Metadata
 
+  class Design ## nested classed  - why? lets you use Metadata::Design "standalone", that is, without 5-byte id
+    def initialize( design )   # 0-127 design num(ber)
+      @design = design
+    end
+
+    def design_bits  ## keep private / internal - why? why not?
+      ## keep 128 possible designs 0 to 127
+      ##   as 7 bit string e.g. 01010111  for now - why? why not?
+      @design_bits ||= '%08b' % @design
+    end
+
+    def facing
+      @facing ||= FACINGS[ design_bits[1,1].to_i(2) ]  ## use desgin > 63 instead  - why? why not?
+    end
+    def face
+      @face ||= FACES[ design_bits[2,2].to_i(2) ]
+    end
+    def fur
+      @fur ||= FURS[ design_bits[4,2].to_i(2) ]
+    end
+    def pose
+      @poses ||= POSES[ design_bits[6,2].to_i(2) ]   ##  use design % 4 instead - why? why not?
+    end
+  end  ## (nested) class Metadata::Design
+
+
+
+
   def initialize( id, **more )
     @bytes = self.class.hex_to_bytes( id )
 
@@ -45,14 +73,6 @@ class Metadata
   def id
     @id ||= @bytes.map { |byte| '%02x' % byte }.join
   end
-
-  def design_bits  ## keep private / internal - why? why not?
-    ## keep 128 possible designs 0 to 127
-    ##   as 7 bit string e.g. 01010111  for now - why? why not?
-    @design_bits ||= '%08b' % design
-  end
-
-
 
   def genesis?
     @bytes[0] != 0   ## note: convert to bool (if zero assume NOT genesis)
@@ -68,18 +88,15 @@ class Metadata
   def pattern() k % 64; end   ## treat facing left|right as the same
 
 
-  def facing
-    @facing ||= FACINGS[ design_bits[1,1].to_i(2) ]  ## use desgin > 63 instead  - why? why not?
+  def design_meta
+    @design_meta ||= Design.new( design )
   end
-  def face
-    @face ||= FACES[ design_bits[2,2].to_i(2) ]
-  end
-  def fur
-    @fur ||= FURS[ design_bits[4,2].to_i(2) ]
-  end
-  def pose
-    @poses ||= POSES[ design_bits[6,2].to_i(2) ]   ##  use design % 4 instead - why? why not?
-  end
+
+  def facing()  @design_meta.facing; end
+  def face()    @design_meta.face; end
+  def fur()     @design_meta.fur; end
+  def pose()    @design_meta.pose; end
+
 
   ####
   # more "external" attributes
