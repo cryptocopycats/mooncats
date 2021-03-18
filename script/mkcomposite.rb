@@ -40,18 +40,14 @@ MOONCATS_ROWS.times do |y|
       ##   - 20×14 - Sleeping
       ##   - 17×22 - Pouncing
       ##   - 20×21 - Stalking
-      x_center = case cat.width
-                 when 17 then 3   ## e.g. for (17×_) add 3 more pixel left padding
-                 when 20 then 2   ##      for (20×_) add 2 more
-                 when 21 then 1   ##      for (21×_) add 1 more
-                 end
-
-      y_center = case cat.height
-                 when 14 then 5   ## e.g. for (_×14) add 5 more pixel top padding
-                 when 17 then 3   ##      for (_×17) add 3
-                 when 21 then 1   ##      for (_×21) add 1
-                 when 22 then 1   ##      for (_×22) add 1
-                 end
+      ## e.g. add left padding (x_center) and
+      ##          top padding (y_center)
+      x_center, y_center = case [cat.width, cat.height]
+                           when [21,17] then [1,3]
+                           when [20,14] then [2,5]
+                           when [17,22] then [3,1]
+                           when [20,21] then [2,1]
+                           end
 
       composite.compose!( cat.image, x*CANVAS_WIDTH+x_center, y*CANVAS_HEIGHT+y_center )
     else
