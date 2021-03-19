@@ -2,8 +2,12 @@
 #  to run use
 #     ruby -I ./lib script/mkcomposite.rb
 
-
 require 'mooncats'
+
+
+## use composite image (convenience) helper / wrapper
+##   note: defaults to col=100, rows=255  (100x255 = 25500 mooncats max.)
+composite = Mooncats::Image::Composite.new
 
 
 ## read metadata (5-byte hexstring ids, etc.)
@@ -14,48 +18,24 @@ puts "  #{data.size} mooncat(s)"
 
 
 
-MOONCATS_COLS = 100
-MOONCATS_ROWS = 255
+###
+## to sort the data for example by pose, facing, face, fur in that order
+##   use:
+## data = data.sort do |l,r|
+##                    res = l.pose   <=> r.pose                 # 1. sort by pose
+##                    res = l.facing <=> r.facing  if res == 0  # 2. sort by facing if pose is equal (0)
+##                    res = l.face   <=> r.face    if res == 0  # 3. sort by face if facing is equal (0) too
+##                    res = l.fur    <=> r.fur     if res == 0  # 4. sort by fur if face is equal (0) too
+##                    res
+##                 end
 
-CANVAS_WIDTH  = 24
-CANVAS_HEIGHT = 24
 
-composite = ChunkyPNG::Image.new( MOONCATS_COLS*CANVAS_WIDTH,
-                                  MOONCATS_ROWS*CANVAS_HEIGHT,
-                                  ChunkyPNG::Color::WHITE ) # why? why not?
+data.each_with_index do |cat_meta,i|
+  cat_id = cat_meta['id']
 
-i=0
-MOONCATS_ROWS.times do |y|
-  MOONCATS_COLS.times do |x|
-    puts "  adding #{i} - x:#{x}/y:#{y}..."
-    cat_meta = data[i]
-    if cat_meta
-      cat_id = cat_meta['id']
-      cat = Mooncats::Image.generate( cat_id )
-      puts "    width: #{cat.width}, height: #{cat.height}"
+  puts "  adding [#{i}] - #{cat_id}..."
 
-      ## try to center image (identicon) in 24x24 canvas
-      ##   the 4 formats are
-      ##   - 21×17 - Standing
-      ##   - 20×14 - Sleeping
-      ##   - 17×22 - Pouncing
-      ##   - 20×21 - Stalking
-      ## e.g. add left padding (x_center) and
-      ##          top padding (y_center)
-      x_center, y_center = case [cat.width, cat.height]
-                           when [21,17] then [1,3]
-                           when [20,14] then [2,5]
-                           when [17,22] then [3,1]
-                           when [20,21] then [2,1]
-                           end
-
-      composite.compose!( cat.image, x*CANVAS_WIDTH+x_center, y*CANVAS_HEIGHT+y_center )
-    else
-      puts "!! WARN - no cat meta info found; skipping"
-    end
-    i += 1
-  end
-  puts
+  composite << Mooncats::Image.generate( cat_id )
 end
 
 
