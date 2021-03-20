@@ -115,7 +115,7 @@ And so on.
 Yes, you can mint mooncats in your own scripts
 and much more.
 See the
-[**Programming Mooncats Step-by-Step Booklet / Guide »**](https://github.com/cryptopunksnotdead/programming-mooncats)  - Upcoming
+[**Programming MoonCats & MarsCats Step-by-Step Booklet / Guide »**](https://github.com/cryptocopycats/programming-mooncats)
 
 
 
