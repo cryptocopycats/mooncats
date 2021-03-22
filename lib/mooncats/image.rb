@@ -30,6 +30,12 @@ def self.generate( id, zoom: 1 )
        zoom:   zoom )
 end
 
+### add more (convenience) aliases
+class << self
+  alias_method :mint, :generate
+end
+
+
 
 def initialize( design: 0,
                 colors: COLORS_GENESIS_WHITE,
