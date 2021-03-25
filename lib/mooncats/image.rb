@@ -1,5 +1,19 @@
 
 module Mooncats
+
+
+class Color
+  def self.to_hex(color, include_alpha: false)
+    if include_alpha
+      '#%08x' % color
+    else
+      '#%06x' % [color >> 8]
+    end
+  end
+end  # class Color
+
+
+
 class Image
 
 
@@ -20,9 +34,10 @@ def self.generate( id, zoom: 1 )
                  COLORS_GENESIS_BLACK
               end
            else
-             derive_palette( meta.r,
-                             meta.g,
-                             meta.b, invert: meta.invert? )
+             derive_palette( r: meta.r,
+                             g: meta.g,
+                             b: meta.b,
+                             invert: meta.invert? )
            end
 
   new( design: design,
@@ -94,21 +109,30 @@ def image()        @cat; end
 
 ##################
 #  (static) helpers
-def self.derive_palette( r, g, b, invert: false )
-  ## note: Color.rgb returns an Integer (e.g. 34113279 - true color or just hex rgba or?)
-  rgb = ChunkyPNG::Color.rgb( r, g, b )
+def self.derive_palette( r: nil, g: nil, b: nil,
+                         hue: nil,
+                         invert: false )
 
-   # to_hsl(color, include_alpha = false) ⇒ Array<Fixnum>[0], ...
-   #   Returns an array with the separate HSL components of a color.
-  hsl = ChunkyPNG::Color.to_hsl( rgb )
-  #=> [237, 0.9705882352941178, 0.26666666666666666]
+   if hue
+     ## pass through as is 1:1
+   else ## assume r, g, b
+      ## note: Color.rgb returns an Integer (e.g. 34113279 - true color or just hex rgba or?)
+      rgb = ChunkyPNG::Color.rgb( r, g, b )
 
-  h = hsl[0]
-  s = hsl[1]
-  l = hsl[2]
+      # to_hsl(color, include_alpha = false) ⇒ Array<Fixnum>[0], ...
+       #   Returns an array with the separate HSL components of a color.
+      hsl = ChunkyPNG::Color.to_hsl( rgb )
+      #=> [237, 0.9705882352941178, 0.26666666666666666]
 
-  hx = h % 360
-  hy = (h + 320) % 360
+      h = hsl[0]
+      s = hsl[1]
+      l = hsl[2]
+
+      hue = h
+   end
+
+   hx = hue % 360
+   hy = (hue + 320) % 360
   #=> e.g. hx: 237, hy: 197
 
   c1 = ChunkyPNG::Color.from_hsl( hx, 1, 0.1 )
@@ -147,6 +171,38 @@ def parse_color( color )
     raise ArgumentError, "unknown color format; cannot parse - expected rgb hex string e.g. d3d3d3"
   end
 end
+
+
+
+class Bar ## (nested) class inside Image (e.g. Image::Bar)
+  ## make a color bar
+  def initialize( colors:,  zoom: 24 )
+    @bar = ChunkyPNG::Image.new( colors.size*zoom,
+                                 zoom,
+                                 ChunkyPNG::Color::WHITE ) # why? why not?
+
+    colors.each_with_index do |color,i|
+      zoom.times do |x|
+        zoom.times do |y|
+          @bar[x+zoom*i,y] = color
+        end
+      end
+    end
+  end # def initialize
+
+  #####
+  # (image) delegates
+  ##   todo/check: add some more??
+  def save( path, constraints = {} )
+    @bar.save( path, constraints )
+  end
+
+  def width()        @bar.width; end
+  def height()       @bar.height; end
+
+  ## return image ref - use a different name - why? why not?
+  def image()        @bar; end
+end  # (nested) class Bar
 end # class Image
 
 
