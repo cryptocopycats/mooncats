@@ -90,6 +90,35 @@ class Metadata
   def pattern() k % 64; end   ## treat facing left|right as the same
 
 
+  def hue
+    @hue ||= begin
+               rgb = ChunkyPNG::Color.rgb( r, g, b )
+               hsl = ChunkyPNG::Color.to_hsl( rgb )
+               hsl[0]
+             end
+  end
+
+  def color
+    case hue
+    when   0..29  then 'Red'
+    when  30..59  then 'Orange'
+    when  60..89  then 'Yellow'
+    when  90..119 then 'Chartreuse'
+    when 120..149 then 'Green'
+    when 150..179 then 'Lime Green'
+    when 180..209 then 'Cyan'
+    when 210..239 then 'Sky Blue'
+    when 240..269 then 'Blue'
+    when 270..299 then 'Purple'
+    when 300..329 then 'Magenta'
+    when 330..359 then 'Fuscia'
+    else
+     puts "!! ERROR - unexpected hue (in degress); got #{hue} - expected 0 to 359"
+     exit 1
+    end
+  end
+
+
   def design
     @design ||= Design.new( k % 128 )
   end
@@ -116,6 +145,8 @@ class Metadata
      when :b       then b
      when :rgb     then rgb
      when :invert  then invert?
+     when :hue     then hue
+     when :color   then color
      when :design  then design.to_i
      when :pattern then pattern
      when :facing  then facing
