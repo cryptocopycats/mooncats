@@ -142,7 +142,7 @@ def self.derive_palette( r: nil, g: nil, b: nil,
       hue = hsl[0]
    end
 
-   hx = hue % 360
+   hx = hue % 360      ## note: makes sure number is always POSITIVE (e.g. -13 % 360 => 347)
    hy = (hue + 320) % 360
   #=> e.g. hx: 237, hy: 197
 

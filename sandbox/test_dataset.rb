@@ -31,8 +31,18 @@ puts "  #{mooncats.size}  mooncat(s)"
 #=> 25440 mooncat(s)
 
 
-pp mooncats[0]
-pp mooncats[-1]
+pp first = mooncats[0]
+pp last  = mooncats[-1]
 
+
+pp last.mint
+pp last.year
+pp last.timestamp
+pp last.block
+
+pp last[ :mint ]
+pp last[ :year ]
+pp last[ :timestamp ]
+pp last[ :block ]
 
 puts "bye"

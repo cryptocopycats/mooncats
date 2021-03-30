@@ -92,26 +92,56 @@ class Metadata
 
   def hue
     @hue ||= begin
+       ## note: hsl[0], that is, hue MIGHT BE NEGATIVE!
+       ##   e.g. try rbg( 91, 27, 41 )
+       ##         resulting in
+       ##          hsl( -13, 0.5423728813559322, 0.23137254901960785 )
+       ##  remember: always use % 360 to make positive!!!
+       ##    e.g.   -13 % 360   => 347
+       ##           -25 % 360   => 335
                rgb = ChunkyPNG::Color.rgb( r, g, b )
                hsl = ChunkyPNG::Color.to_hsl( rgb )
-               hsl[0]
+               hsl[0] % 360    ## make sure number is always POSITIVE!!!
              end
   end
 
+
   def color
+    case hue
+    when 345..359,
+           0..14   then 'Red'
+    when  15..44   then 'Orange'
+    when  45..74   then 'Yellow'
+    when  75..104  then 'Chartreuse'
+    when 105..134  then 'Green'
+    when 135..164  then 'Teal'
+    when 165..194  then 'Cyan'
+    when 195..224  then 'Sky Blue'
+    when 225..254  then 'Blue'
+    when 255..284  then 'Purple'
+    when 285..314  then 'Magenta'
+    when 315..344  then 'Fuchsia'
+    else
+      puts "!! ERROR - unexpected hue (in degress); got #{hue} - expected 0 to 359"
+      exit 1
+    end
+ end
+
+
+  def xxx_color_old_formula   ## remove - move to attic??
     case hue
     when   0..29  then 'Red'
     when  30..59  then 'Orange'
     when  60..89  then 'Yellow'
     when  90..119 then 'Chartreuse'
     when 120..149 then 'Green'
-    when 150..179 then 'Lime Green'
+    when 150..179 then 'Lime Green'    ## now renamed to Teal
     when 180..209 then 'Cyan'
     when 210..239 then 'Sky Blue'
     when 240..269 then 'Blue'
     when 270..299 then 'Purple'
     when 300..329 then 'Magenta'
-    when 330..359 then 'Fuscia'
+    when 330..359 then 'Fuchsia'
     else
      puts "!! ERROR - unexpected hue (in degress); got #{hue} - expected 0 to 359"
      exit 1
@@ -131,7 +161,10 @@ class Metadata
 
   ####
   # more "external" attributes
-  def mint()   @more[:mint]; end
+  def mint()      @more[:mint]; end
+  def block()     @more[:block]; end
+  def timestamp() @more[:timestamp]; end
+  def year()      timestamp ? timestamp.year : nil; end
 
   #####
   # enable array-like access to - why? why not?
@@ -153,6 +186,7 @@ class Metadata
      when :face    then face
      when :fur     then fur
      when :pose    then pose
+     when :year    then year    # note: from more via timestamp
      else
        @more[ key ]
      end

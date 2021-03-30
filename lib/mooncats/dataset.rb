@@ -31,9 +31,17 @@ module Mooncats
         ## note: skip all derived column from id e.g.
         ##        - r,g,b, etc.
 
-        mint  = row['mint'].to_i
+        ## add some more (extra) columns
+        mint      = row['mint'].to_i
+        block     = row['block'].to_i
+        ## expected timestamp format like
+        ##   2017-09-06 15:03:43 UTC
+        timestamp = DateTime.strptime( row['timestamp'], '%Y-%m-%d %H:%M:%S %z')
 
-        mooncats << Metadata.new( id )
+        mooncats << Metadata.new( id,
+                                  mint:      mint,
+                                  block:     block,
+                                  timestamp: timestamp )
       end
       ## print "\n"   ## add progress
 
