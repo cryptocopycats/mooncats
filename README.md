@@ -25,12 +25,12 @@ resulting in:
 
 ```
 Usage: mooncat [options] IDs
-  Mint mooncats from original designs - for IDs use 5 byte hexstrings (e.g 0x004fc21270)
+ Mint mooncats from original designs - for IDs use 5 byte hexstrings (e.g 0x004fc21270)
 
-  Options:
-    -z, --zoom=ZOOM     Zoom factor x2, x4, x8, etc. (default: 1)
-    -d, --dir=DIR       Output directory (default: .)
-    -h, --help          Prints this help
+ Options:
+   -z, --zoom=ZOOM     Zoom factor x2, x4, x8, etc. (default: 1)
+   -d, --dir=DIR       Output directory (default: .)
+   -h, --help          Prints this help
 ```
 
 
