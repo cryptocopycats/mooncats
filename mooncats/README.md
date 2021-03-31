@@ -55,9 +55,9 @@ printing:
 
 And voila!
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-00000800fa.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-0077c8278d.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-ff5f000ca7.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-00000800fa.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-0077c8278d.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-ff5f000ca7.png)
 
 
 
@@ -86,23 +86,24 @@ printing:
 
 And voila!
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-00000800fa_x2.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-0077c8278d_x2.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-ff5f000ca7_x2.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-00000800fa_x2.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-0077c8278d_x2.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-ff5f000ca7_x2.png)
 
 
 And x4:
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-00000800fa_x4.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-0077c8278d_x4.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-ff5f000ca7_x4.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-00000800fa_x4.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-0077c8278d_x4.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-ff5f000ca7_x4.png)
 
 
 And x8:
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-00000800fa_x8.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-0077c8278d_x8.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/i/mooncat-ff5f000ca7_x8.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-00000800fa_x8.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-0077c8278d_x8.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/mooncats/i/mooncat-ff5f000ca7_x8.png)
+
 
 
 
