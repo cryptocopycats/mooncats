@@ -1,6 +1,6 @@
 ####
 # use:
-#  $ ruby -I ./lib sandbox/download.rb
+#  $ ruby -I ./lib script/download.rb
 
 
 require 'mooncats/graphql'

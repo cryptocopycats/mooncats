@@ -36,6 +36,9 @@ build/
 
 
 ####
-# add download  (used for testing)
+# add download  and output (used for testing)
 /dl/
+/o/
+
+
 
