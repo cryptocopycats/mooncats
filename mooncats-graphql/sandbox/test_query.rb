@@ -29,7 +29,6 @@ pp data
 puts "---"
 sleep( 1 )
 
-__END__
 
 
 data = c.query_bestsellers( first: 12 )
