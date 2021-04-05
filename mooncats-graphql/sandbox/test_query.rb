@@ -10,6 +10,27 @@ require 'mooncats/graphql'
 c = Mooncats::GraphQL::Client.new
 
 
+data = c.query( <<GRAPHQL )
+{
+  cats(first: 12, orderBy: maxAdoptionPrice, orderDirection: desc)
+  {
+    id
+    rescueIndex
+    rescueBlock
+    rescueTime
+    name
+    isGenesis
+    maxAdoptionPrice
+  }
+}
+GRAPHQL
+
+pp data
+puts "---"
+sleep( 1 )
+
+__END__
+
 
 data = c.query_bestsellers( first: 12 )
 pp data

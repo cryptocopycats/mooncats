@@ -4,6 +4,5 @@ README.md
 Rakefile
 lib/mooncats-graphql.rb
 lib/mooncats/graphql.rb
-lib/mooncats/graphql/client.rb
 lib/mooncats/graphql/query.rb
 lib/mooncats/graphql/version.rb

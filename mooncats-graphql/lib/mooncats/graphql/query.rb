@@ -1,11 +1,7 @@
 
 module Mooncats
 module GraphQL
-
-  class Client < ::Mooncats::Client
-    def initialize
-      super( base_uri: 'https://api.thegraph.com/subgraphs/name/merklejerk/moon-cats-rescue' )
-    end
+  class Client
 
 
     def query_bestsellers( first: 100,
@@ -275,6 +271,8 @@ GRAPHQL
 
     #####
     #  generic query via HTTP POST
+    BASE_URL = 'https://api.thegraph.com/subgraphs/name/merklejerk/moon-cats-rescue'
+
     def query( query, includes: [] )
       if includes.size > 0
         ## check for end-of-line comments with @INCLUDES marker
@@ -282,12 +280,19 @@ GRAPHQL
                                includes.join( ' ' ) )
       end
 
-      post( query: query )
-    end
+      res = Webclient.post( BASE_URL, json: {
+                                        query: query } )
 
+      if res.status.nok?   ## e.g. != 200
+        puts "!! ERROR: HTTP #{res.status.code} #{res.status.message}:"
+        pp res.raw   ## note: dump inner (raw) response (NOT the wrapped)
+        exit 1
+      end
+
+      res.json  ## return body (utf-8 enconded text) parsed as json
+    end
 
   end # class Client
 end # module GraphQL
 end # module Mooncats
-
 

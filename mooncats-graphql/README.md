@@ -24,12 +24,57 @@ require 'mooncats/graphql'
 
 c = Mooncats::GraphQL::Client.new
 
+data = c.query( <<GRAPHQL )
+{
+  cats(first: 12, orderBy: maxAdoptionPrice, orderDirection: desc)
+  {
+    id
+    rescueIndex
+    rescueBlock
+    rescueTime
+    name
+    isGenesis
+    maxAdoptionPrice
+  }
+}
+GRAPHQL
+```
+
+
+resulting in:
+
+``` ruby
+{"data"=>
+  {"cats"=>
+    [{"id"=>"0xff52000ca7",
+      "isGenesis"=>true,
+      "maxAdoptionPrice"=>"55500000000000000000",
+      "name"=>nil,
+      "rescueBlock"=>4363303,
+      "rescueIndex"=>2878,
+      "rescueTime"=>1507932258},
+     {"id"=>"0xff50000ca7",
+      "isGenesis"=>true,
+      "maxAdoptionPrice"=>"55500000000000000000",
+      "name"=>nil,
+      "rescueBlock"=>4363303,
+      "rescueIndex"=>2876,
+      "rescueTime"=>1507932258},
+     #...
+     ]
+  }
+}
+```
+
+Or use pre-configured / built-in queries. Example:
+
+```ruby
 data = c.query_bestsellers( first: 12 )
 ```
 
 resulting in:
 
-``` ruby
+```ruby
 [{"id"               => "0xff52000ca7",
   "isGenesis"        => true,
   "maxAdoptionPrice" => "55500000000000000000",
@@ -48,9 +93,9 @@ resulting in:
 ]
 ```
 
-Note: Depending on the query either a data array (zero, one or more records)
+Note: Depending on the pre-defined / built-in query either a data array (zero, one or more records)
 e.g. `query_bestsellers`
-or a hash table or nil  (one or no record) e.g. `query_cat_by_id`
+or a hash table or nil (one or no record) e.g. `query_cat_by_id`
 gets returned. Use like:
 
 
