@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift( "../cryptocopycats/mooncats/mooncats-graphql/lib" )
+$LOAD_PATH.unshift( "../mooncats-graphql/lib" )
 require 'mooncats/graphql'
 
 
