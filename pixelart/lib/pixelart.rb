@@ -4,6 +4,9 @@ require 'chunky_png'
 ## stdlib
 require 'pp'
 
+## our own code
+require 'pixelart/version'    # note: let version always go first
+
 
 
 module Pixelart
@@ -108,3 +111,9 @@ end  # module Pixelart
 
 
 
+### add some convenience shortcuts
+PixelArt = Pixelart
+
+
+
+puts Pixelart.banner    # say hello

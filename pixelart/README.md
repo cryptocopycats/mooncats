@@ -5,8 +5,8 @@ pixelart  - mint your own pixel art images off chain using any design (in ascii 
 
 * home  :: [github.com/cryptocopycats/mooncats](https://github.com/cryptocopycats/mooncats)
 * bugs  :: [github.com/cryptocopycats/mooncats/issues](https://github.com/cryptocopycats/mooncats/issues)
-* gem   :: [rubygems.org/gems/mooncats](https://rubygems.org/gems/pixelart)
-* rdoc  :: [rubydoc.info/gems/mooncats](http://rubydoc.info/gems/pixelart)
+* gem   :: [rubygems.org/gems/pixelart](https://rubygems.org/gems/pixelart)
+* rdoc  :: [rubydoc.info/gems/pixelart](http://rubydoc.info/gems/pixelart)
 
 
 
@@ -40,7 +40,7 @@ pixels =<<PIXELS
 PIXELS
 ```
 
-And let's use the genesis white color scheme - super rare only 48 exist in the official MoonCatRescue blockchain contract ;-):
+And let's use the genesis white color scheme - super rare only 48 exist in the official MoonCatRescue blockchain contract state storage ;-):
 
 ``` ruby
 colors = [
@@ -187,8 +187,8 @@ PIXELS
 ```
 
 
-Note: Yes, you can use any number (e.g. `0` `1` `2` `3` etc.)
-or shortcut (e.g. `o` `b` `ulg` `lg` etc.) for pixels.
+Note: Yes, you can use any number (e.g. `0` `1` `2` `3` etc)
+or shortcut (e.g. `o` `b` `ulg` `lg` etc) for pixels.
 Only make sure you have a color map matching your shortcuts.
 
 
