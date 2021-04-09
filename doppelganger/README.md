@@ -19,6 +19,8 @@ and, thus, reusing your CryptoKitty colors and choosing one of the 128 design yo
 
 ## Kitty #979522 Doppelganger
 
+![](i/979522.png)
+
 Let's try kitty #979522.
 The colors on the profile page read:
 
@@ -47,9 +49,6 @@ doppelganger( 979522, colors: [
 
 And voila!
 
-![](i/979522.png)
-
-
 ![](i/979522_008.png)
 ![](i/979522_009.png)
 ![](i/979522_010.png)
@@ -69,10 +68,16 @@ And voila!
 ![](i/979522_015x3.png)
 
 
+For the record - compare to the original kitty #979522 design:
+
+![](i/979522.png)
+
 
 
 
 ## Kitty #1925652 Doppelganger
+
+![](i/1925652.png)
 
 
 Let's try kitty #1925652.
@@ -97,9 +102,6 @@ doppelganger( 1925652, colors: [
 
 And voila!
 
-![](i/1925652.png)
-
-
 ![](i/1925652_008.png)
 ![](i/1925652_009.png)
 ![](i/1925652_010.png)
@@ -118,6 +120,9 @@ And voila!
 ![](i/1925652_014x3.png)
 ![](i/1925652_015x3.png)
 
+For the record - compare to the original kitty #1925652 design:
+
+![](i/1925652.png)
 
 
 
