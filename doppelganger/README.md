@@ -129,7 +129,7 @@ For the record - compare to the original kitty #1925652 design:
 
 ##  Future Directions - Comments Welcome
 
-Realy not too bad for a first rough quick & dirty doppelganger experiment.
+Really not too bad for a first rough quick & dirty doppelganger experiment.
 
 
 Ideas for future improvements:
