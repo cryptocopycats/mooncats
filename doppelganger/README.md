@@ -17,6 +17,8 @@ and, thus, reusing your CryptoKitty colors and choosing one of the 128 design yo
 
 
 
+## Kitty #979522 Doppelganger
+
 Let's try kitty #979522.
 The colors on the profile page read:
 
@@ -31,7 +33,7 @@ And let's try
 
 All designs use Smile (Face) & Left (Facing). Let's do the original ~24x24 pixel size and 3x format.
 
-Let's run the [doppelganger](doppelganger.rb) script:
+Let's setup the [`doppelganger`](doppelganger.rb) script:
 
 ``` ruby
 doppelganger( 979522, colors: [
@@ -42,6 +44,8 @@ doppelganger( 979522, colors: [
   '#43edac'    # color 5 => eye color here
 ])
 ```
+
+And voila!
 
 ![](i/979522.png)
 
@@ -67,6 +71,10 @@ doppelganger( 979522, colors: [
 
 
 
+
+## Kitty #1925652 Doppelganger
+
+
 Let's try kitty #1925652.
 The colors on the profile page read:
 
@@ -75,7 +83,7 @@ The colors on the profile page read:
 - peach (accent color)             - `#f9cfad`
 - cyan (eye color)                 - `#45f0f4`
 
-Let's run the [doppelganger](doppelganger.rb) script:
+Let's setup the [`doppelganger`](doppelganger.rb) script:
 
 ``` ruby
 doppelganger( 1925652, colors: [
@@ -86,6 +94,8 @@ doppelganger( 1925652, colors: [
   '#45f0f4'
 ])
 ```
+
+And voila!
 
 ![](i/1925652.png)
 
@@ -111,6 +121,7 @@ doppelganger( 1925652, colors: [
 
 
 
+
 ##  Future Directions - Comments Welcome
 
 Realy not too bad for a first rough quick & dirty doppelganger experiment.
@@ -119,8 +130,8 @@ Realy not too bad for a first rough quick & dirty doppelganger experiment.
 Ideas for future improvements:
 
 - The eye color does not really exist in the mooncat design.
-  Change the the design (eyes always hard-coded in "black-ish" outline color 1) to use "new" color 6 (?) for eye color.
-- In the mooncat design the mouth is NOT always hard-coded in "black-ish" outline color 1) like in the cryptokitties design BUT
+  Change  the design (eyes always hard-coded in "black-ish" outline color 1) to use "new" color 6 (?) for eye color or better add new eye shadow (already present in some designs)?
+- In the mooncat design the mouth (and nose) is NOT always hard-coded in "black-ish" outline color 1) like in the cryptokitties design BUT
 uses color 5. Change the design to use color 1 for the mouth?
 - Your ideas here?  Please, tell.
 
