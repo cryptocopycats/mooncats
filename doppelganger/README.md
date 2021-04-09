@@ -14,10 +14,10 @@ How? Every CryptoKitty has in its genome / dna 4 colors encoded:
 
 and, thus, reusing your CryptoKitty colors and choosing one of the 128 design you get a free MoonCat doppelganger.
 
-Let's try kitty #979522
 
-![](i/979522.png)
 
+
+Let's try kitty #979522.
 The colors on the profile page read:
 
 - aquamarine (base color)           - `#add5d2`
@@ -30,6 +30,20 @@ And let's try
 - design 12, 13, 14, 15   - w/ Half/Half Fur - all 4 poses
 
 All designs use Smile (Face) & Left (Facing). Let's do the original ~24x24 pixel size and 3x format.
+
+Let's run the [doppelganger](doppelganger.rb) script:
+
+``` ruby
+doppelganger( 979522, colors: [
+  '#2a2825',   # color 1  -- "black-ish" outline color
+  '#8be179',   # color 2 => acc color here
+  '#add5d2',   # color 3 => base color here
+  '#44e192',   # color 4 => hi color here
+  '#43edac'    # color 5 => eye color here
+])
+```
+
+![](i/979522.png)
 
 
 ![](i/979522_008.png)
@@ -50,5 +64,64 @@ All designs use Smile (Face) & Left (Facing). Let's do the original ~24x24 pixel
 ![](i/979522_014x3.png)
 ![](i/979522_015x3.png)
 
+
+
+
+Let's try kitty #1925652.
+The colors on the profile page read:
+
+- orangesoda (base color)          - `#f7bc56`
+- royalpurple (highlight color)    - `#cf5be8`
+- peach (accent color)             - `#f9cfad`
+- cyan (eye color)                 - `#45f0f4`
+
+Let's run the [doppelganger](doppelganger.rb) script:
+
+``` ruby
+doppelganger( 1925652, colors: [
+  '#2a2825',   # color 1  -- "black-ish" outline color
+  '#f9cfad',
+  '#f7bc56',
+  '#cf5be8',
+  '#45f0f4'
+])
+```
+
+![](i/1925652.png)
+
+
+![](i/1925652_008.png)
+![](i/1925652_009.png)
+![](i/1925652_010.png)
+![](i/1925652_011.png)
+![](i/1925652_008x3.png)
+![](i/1925652_009x3.png)
+![](i/1925652_010x3.png)
+![](i/1925652_011x3.png)
+
+![](i/1925652_012.png)
+![](i/1925652_013.png)
+![](i/1925652_014.png)
+![](i/1925652_015.png)
+![](i/1925652_012x3.png)
+![](i/1925652_013x3.png)
+![](i/1925652_014x3.png)
+![](i/1925652_015x3.png)
+
+
+
+
+##  Future Directions - Comments Welcome
+
+Realy not too bad for a first rough quick & dirty doppelganger experiment.
+
+
+Ideas for future improvements:
+
+- The eye color does not really exist in the mooncat design.
+  Change the the design (eyes always hard-coded in "black-ish" outline color 1) to use "new" color 6 (?) for eye color.
+- In the mooncat design the mouth is NOT always hard-coded in "black-ish" outline color 1) like in the cryptokitties design BUT
+uses color 5. Change the design to use color 1 for the mouth?
+- Your ideas here?  Please, tell.
 
 
