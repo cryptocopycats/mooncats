@@ -127,6 +127,47 @@ For the record - compare to the original kitty #1925652 design:
 
 
 
+## Kitty #1673550 Doppelganger
+
+![](i/1673550.png)
+
+
+Let's try kitty #1673550.
+The colors on the profile page read:
+
+- salmon (base color)           - `#f4a792`
+- swampgreen (highlight color)  - `#44e192`
+- sandalwood (accent color)     - `#b8916c`
+- gold (eye color)              - `#fcdf35`
+
+Let's run the [`doppelganger`](doppelganger.rb) script.
+And voila!
+
+![](i/1673550_008.png)
+![](i/1673550_009.png)
+![](i/1673550_010.png)
+![](i/1673550_011.png)
+![](i/1673550_008x3.png)
+![](i/1673550_009x3.png)
+![](i/1673550_010x3.png)
+![](i/1673550_011x3.png)
+
+![](i/1673550_012.png)
+![](i/1673550_013.png)
+![](i/1673550_014.png)
+![](i/1673550_015.png)
+![](i/1673550_012x3.png)
+![](i/1673550_013x3.png)
+![](i/1673550_014x3.png)
+![](i/1673550_015x3.png)
+
+For the record - compare to the original kitty #1673550 design:
+
+![](i/1673550.png)
+
+
+
+
 ##  Future Directions - Comments Welcome
 
 Really not too bad for a first rough quick & dirty doppelganger experiment.

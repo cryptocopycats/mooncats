@@ -49,3 +49,18 @@ doppelganger( 1925652, colors: [
   '#cf5be8',
   '#45f0f4'
 ])
+
+## kitty 1673550
+##   colors:
+##     - salmon (base color)           - #f4a792
+##     - swampgreen (highlight color)  - #44e192
+##     - sandalwood (accent color)     - #b8916c
+##     - gold (eye color)              - #fcdf35
+
+doppelganger( 1673550, colors: [
+  '#2a2825',   # color 1  -- "black-ish" outline color
+  '#b8916c',
+  '#f4a792',
+  '#44e192',
+  '#fcdf35'
+])
