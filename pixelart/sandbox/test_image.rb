@@ -35,11 +35,12 @@ pixels =<<PIXELS
 PIXELS
 
 
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_white.png' )
 
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 3 )
-img.save( './i/mooncat_white-3x.png' )
+img3x = img.zoom( 3 )
+img3x.save( './i/mooncat_white-3x.png' )
+
 
 
 ## color map - genesis black
@@ -51,13 +52,31 @@ colors = [
   '#ff9999'
 ]
 
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_black.png' )
 
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 3 )
-img.save( './i/mooncat_black-3x.png' )
+img3x = img.zoom( 3 )
+img3x.save( './i/mooncat_black-3x.png' )
 
 
+img = Pixelart::Image.read( './i/mooncat_black.png' )
+img3x = img.zoom( 3 )
+img3x.save( './tmp/mooncat_black-3x.png' )
+
+
+###########
+## generate 2x2 composite with 4 mooncats (titles)
+
+tile = Pixelart::Image.read( './i/mooncat_black.png' )
+
+img  = Pixelart::Image.new( tile.width*2, tile.height*2 )
+img.compose!( tile, 0, 0 )
+img.compose!( tile, tile.width, 0 )
+img.compose!( tile, 0, tile.height )
+img.compose!( tile, tile.width, tile.height )
+img.save( './tmp/mooncat_composite.png' )
+
+img.zoom( 3 ).save( './tmp/mooncat_composite-3x.png' )
 
 
 ## Darth Vader example
@@ -153,12 +172,11 @@ o o o o ulg ulg ulg ulg b b b b b b b b b b ulg ulg b b b b b b b b b ulg ulg ul
 PIXELS
 
 
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/vader.png' )
 
-
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 5 )
-img.save( './i/vader5x.png' )
+imgx5 = img.zoom( 5 )
+imgx5.save( './i/vader5x.png' )
 
 
 puts "bye"

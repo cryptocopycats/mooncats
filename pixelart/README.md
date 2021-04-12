@@ -58,21 +58,22 @@ Note: The color 0 (transparent) is auto-magically added / defined.
 And let's mint a mooncat image:
 
 ``` ruby
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_white.png' )
 ```
 
 And let's try a 3x zoom factor:
 
 ``` ruby
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 3 )
-img.save( './i/mooncat_white-3x.png' )
+img3x = img.zoom( 3 )
+img3x.save( './i/mooncat_white-3x.png' )
 ```
 
 Voila!
 
-![](i/mooncat_white.png)
-![](i/mooncat_white-3x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_white.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_white-3x.png)
+
 
 
 Let's change the colors to use the genesis black color scheme:
@@ -90,17 +91,17 @@ colors = [
 And let's start minting:
 
 ``` ruby
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_black.png' )
 
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 3 )
-img.save( './i/mooncat_black-3x.png' )
+img3x = img.zoom( 3 )
+img3x.save( './i/mooncat_black-3x.png' )
 ```
 
 Voila! Black is the new White!
 
-![](i/mooncat_black.png)
-![](i/mooncat_black-3x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_black.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_black-3x.png)
 
 
 
@@ -213,21 +214,21 @@ colors = {
 And let's mint an imperial master image:
 
 ``` ruby
-img = Pixelart::Image.new( pixels, colors: colors )
+img = Pixelart::Image.parse( pixels, colors: colors )
 img.save( './i/vader.png' )
 ```
 
 And let's try a 5x zoom factor:
 
 ``` ruby
-img = Pixelart::Image.new( pixels, colors: colors, zoom: 5 )
-img.save( './i/vader5x.png' )
+img5x = img.zoom( 5 )
+img5x.save( './i/vader5x.png' )
 ```
 
 Voila!
 
-![](i/vader.png)
-![](i/vader5x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/vader.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/vader5x.png)
 
 
 
