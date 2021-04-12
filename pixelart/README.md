@@ -71,8 +71,8 @@ img3x.save( './i/mooncat_white-3x.png' )
 
 Voila!
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_white.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_white-3x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/mooncat_white.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/mooncat_white-3x.png)
 
 
 
@@ -100,8 +100,8 @@ img3x.save( './i/mooncat_black-3x.png' )
 
 Voila! Black is the new White!
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_black.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/mooncat_black-3x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/mooncat_black.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/mooncat_black-3x.png)
 
 
 
@@ -227,8 +227,8 @@ img5x.save( './i/vader5x.png' )
 
 Voila!
 
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/vader.png)
-![](https://github.com/cryptocopycats/mooncats/raw/master/pixelarti/vader5x.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/vader.png)
+![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/vader5x.png)
 
 
 
