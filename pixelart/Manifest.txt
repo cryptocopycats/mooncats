@@ -3,4 +3,5 @@ Manifest.txt
 README.md
 Rakefile
 lib/pixelart.rb
+lib/pixelart/image.rb
 lib/pixelart/version.rb
