@@ -24,7 +24,7 @@ class Image
     width  = @img.width*led  + (@img.width-1)*spacing
     height = @img.height*led + (@img.height-1)*spacing
 
-    puts " #{width}x#{height}"
+    puts " #{@img.width}x#{@img.height} => #{width}x#{height}"
 
     img = Image.new( width, height, Color::BLACK )
 
