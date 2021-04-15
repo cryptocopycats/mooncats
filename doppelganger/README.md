@@ -182,3 +182,8 @@ uses color 5. Change the design to use color 1 for the mouth?
 - Your ideas here?  Please, tell.
 
 
+
+## Questions? Comments?
+
+Post them on the [mooncatrescue reddit](https://old.reddit.com/r/mooncatrescue)
+or [cryptokitties reddit](https://old.reddit.com/r/cryptokitties). Thanks.
