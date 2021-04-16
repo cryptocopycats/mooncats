@@ -10,6 +10,8 @@ require 'fileutils'
 
 ## our own code
 require 'pixelart/version'    # note: let version always go first
+require 'pixelart/color'
+require 'pixelart/gradient'
 require 'pixelart/image'
 
 

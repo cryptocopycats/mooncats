@@ -1,57 +1,5 @@
 module Pixelart
 
-
-
-
-class Color
-  def self.parse( color )
-    if color.is_a?( Integer )  ## e.g. assumes ChunkyPNG::Color.rgb() or such
-      color ## pass through as is 1:1
-    elsif color.is_a?( Array )  ## assume array of hsl(a) e. g. [180, 0.86, 0.88]
-      ChunkyPNG::Color.from_hsl( *color )
-    elsif color.is_a?( String )
-      if color.downcase == 'transparent'   ## special case for builtin colors
-        ChunkyPNG::Color::TRANSPARENT
-      else
-        ## note: return an Integer !!! (not a Color class or such!!! )
-        ChunkyPNG::Color.from_hex( color )
-      end
-    else
-      raise ArgumentError, "unknown color format; cannot parse - expected rgb hex string e.g. d3d3d3"
-    end
-  end
-
-  def self.from_hex( hex )
-    ## Creates a color by converting it from a string in hex notation.
-    ##
-    ## It supports colors with (#rrggbbaa) or without (#rrggbb)
-    ##  alpha channel as well as the 3-digit short format (#rgb)
-    ## for those without. Color strings may include
-    ## the prefix "0x" or "#"".
-    ChunkyPNG::Color.from_hex( hex )
-  end
-
-  def self.from_hsl( hue, saturation, lightness, alpha=255)
-    ChunkyPNG::Color.from_hsl( hue,
-                               saturation,
-                               lightness,
-                               alpha )
-  end
-
-
-  def self.to_hex( color, include_alpha: true )
-    ChunkyPNG::Color.to_hex( color, include_alpha )
-  end
-
-  def self.to_hsl( color, include_alpha: true )
-    # Returns an array with the separate HSL components of a color.
-    ChunkyPNG::Color.to_hsl( color, include_alpha )
-  end
-end  # class Color
-
-
-
-
 class Image
 
 def self.read( path )   ## convenience helper
@@ -82,7 +30,7 @@ end
 
 
 
-def initialize( width, height, initial=ChunkyPNG::Color::TRANSPARENT )
+def initialize( width, height, initial=Color::TRANSPARENT )
 
   if initial.is_a?( ChunkyPNG::Image )
     @img = initial
@@ -204,7 +152,7 @@ end
 def self.parse_colors( colors )
   if colors.is_a?( Array )   ## convenience shortcut
     ## note: always auto-add color 0 as pre-defined transparent - why? why not?
-    h = { '0' => ChunkyPNG::Color::TRANSPARENT }
+    h = { '0' => Color::TRANSPARENT }
     colors.each_with_index do |color, i|
        h[ (i+1).to_s ] = Color.parse( color )
     end
