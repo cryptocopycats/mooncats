@@ -6,4 +6,5 @@ lib/pixelart.rb
 lib/pixelart/color.rb
 lib/pixelart/gradient.rb
 lib/pixelart/image.rb
+lib/pixelart/misc.rb
 lib/pixelart/version.rb

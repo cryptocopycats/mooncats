@@ -14,6 +14,7 @@ require 'pixelart/color'
 require 'pixelart/gradient'
 require 'pixelart/image'
 
+require 'pixelart/misc'
 
 
 

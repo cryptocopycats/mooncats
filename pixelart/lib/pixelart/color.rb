@@ -7,6 +7,7 @@ class Color
   WHITE       = 0xffffffff   # rgba(255,255,255,255)
 
 
+
   def self.parse( color )
     if color.is_a?( Integer )  ## e.g. assumes ChunkyPNG::Color.rgb() or such
       color ## pass through as is 1:1
@@ -56,6 +57,62 @@ class Color
   def self.b( color ) ChunkyPNG::Color.b( color ); end
 
   def self.rgb( r, g, b ) ChunkyPNG::Color.rgb( r, g, b); end
+
+
+
+  ## known built-in color names
+  def self.build_names
+    names = {
+      '#00000000' => 'TRANSPARENT',
+      '#000000ff' => 'BLACK',
+      '#ffffffff' => 'WHITE',
+    }
+
+    ## auto-add grayscale 1 to 254
+    (1..254).each do |n|
+      hex = "#" + ('%02x' % n)*3
+      hex << "ff"  ## add alpha channel (255)
+      names[ hex ] = "8-BIT GRAYSCALE ##{n}"
+    end
+
+    names
+  end
+
+  NAMES = build_names
+
+
+
+  def self.format( color )
+    hex = to_hex( color )   # rgba in hex (string format)
+    hsl = to_hsl( color )
+    rgb = [r(color),
+           g(color),
+           b(color)]
+
+    buf = ''
+    buf << hex
+    buf << " / "
+    buf << "rgb("
+    buf << "%3d " % rgb[0]
+    buf << "%3d " % rgb[1]
+    buf << "%3d)"  % rgb[2]
+    buf << " - "
+    buf << "hsla("
+    buf << "%3d° " % (hsl[0] % 360)
+    buf << "%3d%% " % (hsl[1]*100+0.5).to_i
+    buf << "%3d%% " % (hsl[2]*100+0.5).to_i
+    buf << "%3d)" % hsl[3]
+
+
+    name = NAMES[ hex ]
+    buf << " - #{name}"  if name
+
+    buf
+  end
+  class << self
+    alias_method :fmt, :format
+  end
+
 end  # class Color
 end  # module Pixelart
 
