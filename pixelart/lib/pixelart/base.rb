@@ -25,9 +25,8 @@ PixelArt = Pixelart
 module Pixelart
   Palette256 = Palette8Bit = Palette8bit
 
-  class Image
-    Palette256 = Palette8Bit = Palette8bit
-  end
+  Palette256Image = Palette8BitImage = Palette8bitImage =
+  ImagePalette256 = ImagePalette8Bit = ImagePalette8bit
 end
 
 

@@ -58,7 +58,7 @@ uigradients.each do |name, stops|
   colors = gradient.colors( 256 )
   pp colors.map { |color| Pixelart::Color.format( color ) }
 
-  img = Pixelart::Image::Palette8bit.new( colors, size: 4 )
+  img = Pixelart::ImagePalette8bit.new( colors, size: 4 )
   img.save( "tmp/palette_#{name}4.png" )
   img.zoom(2).save( "tmp/palette_#{name}4x2.png" )
 end

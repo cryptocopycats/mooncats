@@ -1,8 +1,7 @@
 module Pixelart
 
 
-class Image
-class Palette8bit < Image  # or use Palette256 alias?
+class ImagePalette8bit < Image  # or use Palette256 alias?
   def initialize( colors, size: 1, spacing: nil )
     ## todo/check: change size arg to pixel or such? better name/less confusing - why? why not?
 
@@ -32,9 +31,7 @@ class Palette8bit < Image  # or use Palette256 alias?
 
     super( img.width, img.height, img )
   end
-end # class Palette8bit
-
-end # class Image
+end # class ImagePalette8bit
 end # module Pixelart
 
 

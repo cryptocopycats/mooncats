@@ -18,10 +18,10 @@ palettes.each do |palette|
   puts "#{palette[0]} - #{palette[1].size} color(s):"
   pp palette[1][0..12]  ## only dump first colors
 
-  img = Pixelart::Image::Palette8bit.new( palette[1] )
+  img = Pixelart::ImagePalette8bit.new( palette[1] )
   img.save( "tmp/palette_#{palette[0]}.png" )
 
-  img = Pixelart::Image::Palette8bit.new( palette[1], size: 4 )
+  img = Pixelart::ImagePalette8bit.new( palette[1], size: 4 )
   img.save( "tmp/palette_#{palette[0]}4.png" )
   img.zoom(2).save( "tmp/palette_#{palette[0]}4x2.png" )
 end

@@ -98,7 +98,7 @@ PALETTE8BIT = {
 
 def change_palette8bit( palette )
   ## step 0: mapping from grayscale to new 8bit palette (256 colors)
-  color_map = if palette.is_a( String ) || palette.is_a( Symbol )
+  color_map = if palette.is_a?( String ) || palette.is_a?( Symbol )
                  PALETTE8BIT[ palette.to_sym ]
                  ## todo/fix: check for missing/undefined palette not found - why? why not?
               else
