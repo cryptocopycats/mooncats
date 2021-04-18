@@ -254,9 +254,6 @@ gradient = Gradient.new( '000000', 'ffffff' )
 pp colors = gradient.colors( 256 )
 puts '---'
 pp colors.map { |color| Color.to_hex( color ) }
-
-puts '---'
-pp colors = gradient.colors( 10 )
 ```
 
 vs
@@ -267,9 +264,6 @@ gradient = Pixelart::Gradient.new( '000000', 'ffffff' )
 pp colors = gradient.colors( 256 )
 puts '---'
 pp colors.map { |color| Pixelart::Color.to_hex( color ) }
-
-puts '---'
-pp colors = gradient.colors( 10 )
 ```
 
 
