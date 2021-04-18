@@ -3,7 +3,7 @@
 #     ruby -I ./lib sandbox/test_8bit.rb
 
 
-require 'pixelart'
+require 'pixelart/base'
 
 
 

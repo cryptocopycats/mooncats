@@ -83,11 +83,18 @@ class Color
 
 
   def self.format( color )
-    hex = to_hex( color )   # rgba in hex (string format)
-    hsl = to_hsl( color )
     rgb = [r(color),
            g(color),
            b(color)]
+
+    # rgb in hex (string format)
+    #   note: do NOT include alpha channel for now - why? why not?
+    hex = "#" + rgb.map{|num| '%02x' % num }.join
+
+    hsl = to_hsl( color )
+    ## get alpha channel (transparency) for hsla
+    alpha = hsl[3]
+
 
     buf = ''
     buf << hex
@@ -97,14 +104,20 @@ class Color
     buf << "%3d " % rgb[1]
     buf << "%3d)"  % rgb[2]
     buf << " - "
-    buf << "hsla("
+    buf << "hsl("
     buf << "%3d° " % (hsl[0] % 360)
     buf << "%3d%% " % (hsl[1]*100+0.5).to_i
-    buf << "%3d%% " % (hsl[2]*100+0.5).to_i
-    buf << "%3d)" % hsl[3]
+    buf << "%3d%%)" % (hsl[2]*100+0.5).to_i
 
+    if alpha != 255
+      buf << " - α(%3d%%)" % (alpha*100/255+0.5).to_i
+    else
+      buf << "          "  ## add empty for 255 (full opacity)
+    end
 
-    name = NAMES[ hex ]
+    ## note: add alpha channel to hex
+    alpha_hex = '%02x' % alpha
+    name = NAMES[ hex+alpha_hex ]
     buf << " - #{name}"  if name
 
     buf

@@ -7,23 +7,18 @@ module Pixelart
 
 class Palette8bit     # or use Palette256 alias?
 
-  ## 8x32 gradient color stops
-  ##   see https://en.wikipedia.org/wiki/List_of_software_palettes#Color_gradient_palettes
 
-  GRAYSCALE_STOPS = [
-    ## todo/fix: no need to use gradient for grayscale
-    ##           it's just counting from 0 to 255!!!
-    ##           e.g. rgb(0,0,0), rgb(1,1,1), rgb(2,2,2), etc.
-    ['000000','1F1F1F'],
-    ['202020','3F3F3F'],
-    ['404040','5F5F5F'],
-    ['606060','7F7F7F'],
+  ## auto-add grayscale 0 to 255
+  ##  e.g. rgb(0,0,0)
+  ##       rgb(1,1,1)
+  ##       rgb(2,2,2)
+  ##       ...
+  ##       rgb(255,255,255)
+  GRAYSCALE = (0..255).map { |n| Color.rgb( n, n, n ) }
 
-    ['808080','9F9F9F'],
-    ['A0A0A0','BFBFBF'],
-    ['C0C0C0','DFDFDF'],
-    ['E0E0E0','FFFFFF'],
-  ]
+
+   ## 8x32 gradient color stops
+   ##   see https://en.wikipedia.org/wiki/List_of_software_palettes#Color_gradient_palettes
 
   SEPIA_STOPS = [
     ['080400', '262117'],
@@ -62,27 +57,22 @@ class Palette8bit     # or use Palette256 alias?
   ]
 
 
+  def self.build_palette( gradients )
+    colors_per_gradient, mod = 256.divmod( gradients.size )
+    raise ArgumentError, "8bit palette - 256 must be divisible by # of gradients (#{gradients.size}; expected mod of 0 but got #{mod}"   if mod != 0
 
-  def self.build_palette( palette )
-    ## todo/check: assert assume 8 color stop definitions (8x32=256)
     colors = []
-    palette.each do |stops|
-      colors += Gradient.new( stops[0], stops[1] ).colors( 32 )
+    gradients.each do |stops|
+      colors += Gradient.new( *stops ).colors( colors_per_gradient )
     end
     colors
   end
 
-
-  GRAYSCALE = build_palette( GRAYSCALE_STOPS )
   SEPIA     = build_palette( SEPIA_STOPS )
   BLUE      = build_palette( BLUE_STOPS )
   FALSE     = build_palette( FALSE_STOPS )
 end  # class Palette8bit
 
-#####################
-# add aliases
-Palette8Bit = Palette8bit
-Palette256  = Palette8bit
 
 
 
@@ -118,11 +108,6 @@ class Palette8bit < Image  # or use Palette256 alias?
     super( img.width, img.height, img )
   end
 end # class Palette8bit
-
-#####################
-# add aliases
-Palette8Bit = Palette8bit
-Palette256  = Palette8bit
 
 end # class Image
 

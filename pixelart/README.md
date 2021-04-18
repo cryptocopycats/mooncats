@@ -58,7 +58,7 @@ Note: The color 0 (transparent) is auto-magically added / defined.
 And let's mint a mooncat image:
 
 ``` ruby
-img = Pixelart::Image.parse( pixels, colors: colors )
+img = Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_white.png' )
 ```
 
@@ -91,7 +91,7 @@ colors = [
 And let's start minting:
 
 ``` ruby
-img = Pixelart::Image.parse( pixels, colors: colors )
+img = Image.parse( pixels, colors: colors )
 img.save( './i/mooncat_black.png' )
 
 img3x = img.zoom( 3 )
@@ -214,7 +214,7 @@ colors = {
 And let's mint an imperial master image:
 
 ``` ruby
-img = Pixelart::Image.parse( pixels, colors: colors )
+img = Image.parse( pixels, colors: colors )
 img.save( './i/vader.png' )
 ```
 
@@ -229,6 +229,56 @@ Voila!
 
 ![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/vader.png)
 ![](https://github.com/cryptocopycats/mooncats/raw/master/pixelart/i/vader5x.png)
+
+
+
+
+## Modular "Base" Version
+
+
+Note: By default if you require pixelart
+all classes inside the `Pixelart` module such as `Image`, `Color`, `Gradient`, `Palette8bit`, etc. get "top-leveled", that is,
+included in the top level e.g.:
+
+``` ruby
+require 'pixelart/base'
+include Pixelart
+```
+
+And now you can use all classes without
+the `Pixelart::` module scope e.g.:
+
+``` ruby
+gradient = Gradient.new( '000000', 'ffffff' )
+
+pp colors = gradient.colors( 256 )
+puts '---'
+pp colors.map { |color| Color.to_hex( color ) }
+
+puts '---'
+pp colors = gradient.colors( 10 )
+```
+
+vs
+
+``` ruby
+gradient = Pixelart::Gradient.new( '000000', 'ffffff' )
+
+pp colors = gradient.colors( 256 )
+puts '---'
+pp colors.map { |color| Pixelart::Color.to_hex( color ) }
+
+puts '---'
+pp colors = gradient.colors( 10 )
+```
+
+
+For a "stricter" modular version require the "base" version
+that always requires the `Pixelart::` module scope e.g.:
+
+``` ruby
+require 'pixelart/base'
+```
 
 
 

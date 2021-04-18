@@ -127,6 +127,12 @@ def pixels()       @img.pixels; end
 def image()        @img; end
 
 
+## filter / effects
+def grayscale
+  img = @img.grayscale
+  Image.new( img.width, img.height, img )
+end
+
 
 
 ######

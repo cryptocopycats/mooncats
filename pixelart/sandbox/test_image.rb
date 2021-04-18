@@ -3,7 +3,7 @@
 #     ruby -I ./lib sandbox/test_image.rb
 
 
-require 'pixelart'
+require 'pixelart/base'
 
 ## color map  - genesis white
 colors = [
