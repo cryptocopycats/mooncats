@@ -65,19 +65,71 @@ alias_method :scale, :zoom
 
 
 
+#######################
+## filter / effects
 
-def parse_color_map( color_map )
+def grayscale
+  img = @img.grayscale
+  Image.new( img.width, img.height, img )
+end
+
+## add replace_colors alias too? - why? why not?
+def change_colors( color_map )
+  color_map = _parse_color_map( color_map )
+
+  img = @img.dup  ## note: make a deep copy!!!
+  _change_colors!( img, color_map )
+
+  ## wrap into Pixelart::Image - lets you use zoom() and such
+  Image.new( img.width, img.height, img )
+end
+alias_method :recolor, :change_colors
+
+
+
+## predefined palette8bit color maps
+##     (grayscale to sepia/blue/false/etc.)
+##  - todo/check - keep "shortcut" convenience predefined map - why? why not?
+PALETTE8BIT = {
+  sepia: Palette8bit::GRAYSCALE.zip( Palette8bit::SEPIA ).to_h,
+  blue:  Palette8bit::GRAYSCALE.zip( Palette8bit::BLUE ).to_h,
+  false: Palette8bit::GRAYSCALE.zip( Palette8bit::FALSE ).to_h,
+}
+
+def change_palette8bit( palette )
+  ## step 0: mapping from grayscale to new 8bit palette (256 colors)
+  color_map = if palette.is_a( String ) || palette.is_a( Symbol )
+                 PALETTE8BIT[ palette.to_sym ]
+                 ## todo/fix: check for missing/undefined palette not found - why? why not?
+              else
+                 ##  make sure we have colors all in Integer not names, hex, etc.
+                 palette = _parse_colors( palette )
+                 Palette8bit::GRAYSCALE.zip( palette ).to_h
+              end
+
+  ## step 1: convert to grayscale (256 colors)
+  img = @img.grayscale
+  _change_colors!( img, color_map )
+
+  ## wrap into Pixelart::Image - lets you use zoom() and such
+  Image.new( img.width, img.height, img )
+end
+alias_method :change_palette256, :change_palette8bit
+
+
+####
+##  private helpers
+def _parse_colors( colors )
+  colors.map {|color| Color.parse( color ) }
+end
+
+def _parse_color_map( color_map )
   color_map.map do |k,v|
     [Color.parse(k),  Color.parse(v)]
   end.to_h
 end
 
-## add replace_colors alias too? - why? why not?
-def change_colors( color_map )
-  img = @img.dup  ## note: make a deep copy!!!
-  color_map = parse_color_map( color_map )
-  ## pp color_map
-
+def _change_colors!( img, color_map )
   img.width.times do |x|
     img.height.times do |y|
       color = img[x,y]
@@ -85,12 +137,7 @@ def change_colors( color_map )
       img[x,y] = new_color  if new_color
     end
   end
-
-  ## wrap into Pixelart::Image - lets you use zoom() and such
-  Image.new( img.width, img.height, img )
 end
-alias_method :recolor, :change_colors
-
 
 
 
@@ -124,14 +171,9 @@ def []=( x, y, value )  @img[x,y]=value; end
 def pixels()       @img.pixels; end
 
 ## return image ref - use a different name - why? why not?
+##   change to to_image  - why? why not?
 def image()        @img; end
 
-
-## filter / effects
-def grayscale
-  img = @img.grayscale
-  Image.new( img.width, img.height, img )
-end
 
 
 
