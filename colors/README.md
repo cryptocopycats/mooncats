@@ -200,5 +200,4 @@ That's it for now.
 
 ## Questions? Comments?
 
-Post them on the [mooncatrescue reddit](https://old.reddit.com/r/mooncatrescue)
-or [cryptokitties reddit](https://old.reddit.com/r/cryptokitties). Thanks.
+Post them on the [mooncatrescue reddit](https://old.reddit.com/r/mooncatrescue). Thanks.
