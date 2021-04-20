@@ -65,6 +65,28 @@ colorize( 'Vivid Green', colors: [
 ])
 ```
 
+And voila!
+
+![](i/vivid_green_008.png)
+![](i/vivid_green_009.png)
+![](i/vivid_green_010.png)
+![](i/vivid_green_011.png)
+![](i/vivid_green_008x3.png)
+![](i/vivid_green_009x3.png)
+![](i/vivid_green_010x3.png)
+![](i/vivid_green_011x3.png)
+
+![](i/vivid_green_012.png)
+![](i/vivid_green_013.png)
+![](i/vivid_green_014.png)
+![](i/vivid_green_015.png)
+![](i/vivid_green_012x3.png)
+![](i/vivid_green_013x3.png)
+![](i/vivid_green_014x3.png)
+![](i/vivid_green_015x3.png)
+
+
+
 ## Valentine
 
 
@@ -80,6 +102,25 @@ colorize( 'Valentine', colors: [
 ])
 ```
 
+And voila!
+
+![](i/valentine_008.png)
+![](i/valentine_009.png)
+![](i/valentine_010.png)
+![](i/valentine_011.png)
+![](i/valentine_008x3.png)
+![](i/valentine_009x3.png)
+![](i/valentine_010x3.png)
+![](i/valentine_011x3.png)
+
+![](i/valentine_012.png)
+![](i/valentine_013.png)
+![](i/valentine_014.png)
+![](i/valentine_015.png)
+![](i/valentine_012x3.png)
+![](i/valentine_013x3.png)
+![](i/valentine_014x3.png)
+![](i/valentine_015x3.png)
 
 
 ##  Ferrari
@@ -97,6 +138,27 @@ colorize( 'Ferrari', colors: [
 ])
 ```
 
+And voila!
+
+![](i/ferrari_008.png)
+![](i/ferrari_009.png)
+![](i/ferrari_010.png)
+![](i/ferrari_011.png)
+![](i/ferrari_008x3.png)
+![](i/ferrari_009x3.png)
+![](i/ferrari_010x3.png)
+![](i/ferrari_011x3.png)
+
+![](i/ferrari_012.png)
+![](i/ferrari_013.png)
+![](i/ferrari_014.png)
+![](i/ferrari_015.png)
+![](i/ferrari_012x3.png)
+![](i/ferrari_013x3.png)
+![](i/ferrari_014x3.png)
+![](i/ferrari_015x3.png)
+
+
 ## Google
 
 Let's try:
@@ -110,6 +172,27 @@ colorize( 'Google', colors: [
   '#FDBD00', # Fluorescent Orange
 ])
 ```
+
+And voila!
+
+![](i/google_008.png)
+![](i/google_009.png)
+![](i/google_010.png)
+![](i/google_011.png)
+![](i/google_008x3.png)
+![](i/google_009x3.png)
+![](i/google_010x3.png)
+![](i/google_011x3.png)
+
+![](i/google_012.png)
+![](i/google_013.png)
+![](i/google_014.png)
+![](i/google_015.png)
+![](i/google_012x3.png)
+![](i/google_013x3.png)
+![](i/google_014x3.png)
+![](i/google_015x3.png)
+
 
 
 That's it for now.
