@@ -1,3 +1,9 @@
+###########
+#  to run use:
+#    ruby ./doppelganger.rb
+
+
+
 require 'mooncats'
 
 
