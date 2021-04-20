@@ -4,11 +4,6 @@
 - [mooncats-graphql](mooncats-graphql) - (lite) mooncats (http json) graphql api / client
 
 
-<!-- break -->
-
-- [pixelart](pixelart)  - mint your own pixel art images off chain using any design (in ascii text) in any colors; incl. 2x/4x/8x zoom for bigger sizes
-
-
 
 
 ## License
