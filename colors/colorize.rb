@@ -13,15 +13,18 @@ require 'mooncats'
 
 def colorize( name, colors: )
   [8,9,10,11, 12,13,14,15].each do |design|
+    cat_proto = Mooncats::Image.new( design: design,
+                                     colors: colors )
     [1,3].each do |zoom|
-      cat = Mooncats::Image.new( design: design,
-                                 colors: colors,
-                                 zoom: zoom )
-
+      cat = cat_proto    ## reuse same original "prototype" image for all zooms
       name = name.downcase.gsub( ' ', '_' )  ## slugify name
 
       name_plus = '%03d' % design
-      name_plus << "x#{zoom}" if zoom > 1
+
+      if zoom > 1
+        cat = cat.zoom( zoom )
+        name_plus << "x#{zoom}"
+      end
 
       cat.save( "i/#{name}_#{name_plus}.png" )
     end

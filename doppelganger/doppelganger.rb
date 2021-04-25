@@ -14,13 +14,15 @@ require 'mooncats'
 
 def doppelganger( id, colors: )
   [8,9,10,11, 12,13,14,15].each do |design|
+    cat_proto = Mooncats::Image.new( design: design,
+                                     colors: colors )
     [1,3].each do |zoom|
-      cat = Mooncats::Image.new( design: design,
-                                 colors: colors,
-                                 zoom: zoom )
+      cat = cat_proto   ## reuse same original "prototype" image for all zooms
       name = '%03d' % design
-      name << "x#{zoom}" if zoom > 1
-
+      if zoom > 1
+         cat = cat.zoom( zoom )
+         name << "x#{zoom}"
+      end
       cat.save( "i/#{id}_#{name}.png" )
     end
   end
