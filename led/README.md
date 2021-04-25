@@ -25,7 +25,8 @@ Let's try mooncat 0x0077c8278d. Let's mint a fresh copy.
 ``` ruby
 require 'mooncats'
 
-Mooncats::Image.mint( '0x0077c8278d' ).save( './mooncat-0077c8278d.png' )
+cat = Mooncats::Image.mint( '0x0077c8278d' )
+cat.save( './mooncat-0077c8278d.png' )
 ```
 
 ![](i/mooncat-0077c8278d.png)
@@ -40,11 +41,6 @@ And let's try three LED Light variants:
 
 
 ``` ruby
-require 'pixelart'
-
-cat = Pixelart::Image.read( './mooncat-0077c8278d.png' )
-puts " #{cat.width}x#{cat.height}"
-
 cat_led = cat.led( 8, spacing: 2 )
 cat_led.save( './mooncat-0077c8278d_led8x.png' )
 
@@ -154,7 +150,8 @@ Let's mint a fresh copy.
 
 
 ``` ruby
-Mooncats::Image.mint( '0x00000800fa' ).save( './mooncat-00000800fa.png' )
+cat = Mooncats::Image.mint( '0x00000800fa' )
+cat.save( './mooncat-00000800fa.png' )
 ```
 
 ![](i/mooncat-00000800fa.png)
@@ -168,9 +165,6 @@ And let's try three LED Light variants:
 
 
 ``` ruby
-cat = Pixelart::Image.read( './mooncat-00000800fa.png' )
-puts " #{cat.width}x#{cat.height}"
-
 cat.led(  8, spacing: 2 ).save( './mooncat-00000800fa_led8x.png' )
 cat.led( 16, spacing: 3 ).save( './mooncat-00000800fa_led16x.png' )
 cat.led( 16, spacing: 8, round_corner: true ).save( './mooncat-00000800fa_led16xr.png' )
