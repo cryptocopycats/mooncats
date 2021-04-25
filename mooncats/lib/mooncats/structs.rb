@@ -11,19 +11,36 @@ POSES = [
   'Stalking',  ## 11
 ]
 
-FACES = [
+
+OLD_FACES = [   ## old names for face (expressions)
   'Smile',              ## 00
   'Frown (Look Down)',  ## 01
   'Frown (Look Up)',    ## 10
   'Flat Whiskers',      ## 11
 ]
 
-FURS = [
+FACES = [  ## face expressions
+  'Smiling',            ## 00
+  'Grumpy',             ## 01
+  'Pouting',            ## 10
+  'Shy',                ## 11
+]
+
+
+OLD_FURS = [    ## old names for fur (patterns)
   'Solid',      ## 00
   'Striped',    ## 01
   'Eyepatch',   ## 10
   'Half/Half',  ## 11
 ]
+
+FURS = [    ##  fur (patterns)
+  'Pure',      ## 00
+  'Tabby',     ## 01
+  'Spotted',   ## 10
+  'Tortie',    ## 11
+]
+
 
 FACINGS = [
   'Left',   # 0
