@@ -16,15 +16,14 @@ cat.save( './tmp/design-000.png' )
 
 colors = ['555555', '222222', '111111', 'bbbbbb', 'ff9999']
 
-cat = Mooncats::Image.new( design: 3, colors: colors, zoom: 2 )
-cat.save( './tmp/design-003x2.png' )
+cat = Mooncats::Image.new( design: 3, colors: colors )
+cat.zoom(3).save( './tmp/design-003x2.png' )
 
-cat = Mooncats::Image.new( design: DESIGNS[4], colors: colors, zoom: 2 )
-cat.save( './tmp/design-004x2.png' )
+cat = Mooncats::Image.new( design: DESIGNS[4], colors: colors )
+cat.zoom(2).save( './tmp/design-004x2.png' )
 
 cat = Mooncats::Image.new( design: Mooncats::Design.find( 5 ),
-                           colors: colors,
-                           zoom: 2 )
-cat.save( './tmp/design-005x2.png' )
+                           colors: colors )
+cat.zoom(2).save( './tmp/design-005x2.png' )
 
 puts "bye"

@@ -2,6 +2,10 @@
 module Mooncats
 
 
+
+###
+## todo/fix/cleanup - (re)use pixelart color helpers? possible? why? why not?
+
 class Color     ## convenience helper to "abstract" ChunkyPNG usage away in "outside" (not internal) sample code
   def self.to_hex(color, include_alpha: false)
     if include_alpha
@@ -25,14 +29,14 @@ end  # class Color
 
 
 
-class Image
+class Image <  Pixelart::Image
 
 
 COLORS_GENESIS_WHITE = ['#555555', '#d3d3d3', '#ffffff', '#aaaaaa', '#ff9999']
 COLORS_GENESIS_BLACK = ['#555555', '#222222', '#111111', '#bbbbbb', '#ff9999']
 
 
-def self.generate( id, zoom: 1 )
+def self.generate( id )
   meta = Metadata.new( id )
 
   design = meta.design.to_i   # note: meta.design is a struct/object - keep/use a local int !!!
@@ -52,8 +56,7 @@ def self.generate( id, zoom: 1 )
            end
 
   new( design: design,
-       colors: colors,
-       zoom:   zoom )
+       colors: colors )
 end
 
 ### add more (convenience) aliases
@@ -64,10 +67,7 @@ end
 
 
 def initialize( design: 0,
-                colors: COLORS_GENESIS_WHITE,
-                zoom: 1 )
-
-    ## puts "==> [Mooncats] Image.new zoom: #{zoom}"
+                colors: COLORS_GENESIS_WHITE )
 
     design =  if design.is_a?( String )
                  Design.parse( design )
@@ -86,36 +86,22 @@ def initialize( design: 0,
     ## puts " colors:"
     ## pp colors
 
-  @cat = ChunkyPNG::Image.new( design.width*zoom,
-                               design.height*zoom,
-                               ChunkyPNG::Color::WHITE ) # why? why not?
+  img = ChunkyPNG::Image.new( design.width,
+                               design.height,
+                               ChunkyPNG::Color::TRANSPARENT ) # why? why not?
 
     design.each_with_index do |row, x|
       row.each_with_index do |color, y|
         if color > 0
           pixel = colors[ color ]
-          zoom.times do |n|
-            zoom.times do |m|
-              @cat[n+zoom*x,m+zoom*y] = pixel
-            end
-          end
+          img[x,y] = pixel
         end # has color?
       end # each row
     end # each data
+
+    super( img.width, img.height, img )
 end
 
-#####
-# (image) delegates
-##   todo/check: add some more??
-def save( path, constraints = {} )
-  @cat.save( path, constraints )
-end
-
-def width()        @cat.width; end
-def height()       @cat.height; end
-
-## return image ref - use a different name - why? why not?
-def image()        @cat; end
 
 
 ##################
@@ -182,6 +168,9 @@ def parse_color( color )
     raise ArgumentError, "unknown color format; cannot parse - expected rgb hex string e.g. d3d3d3"
   end
 end
+
+
+
 
 
 

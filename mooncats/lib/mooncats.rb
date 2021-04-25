@@ -1,10 +1,9 @@
 ## 3rd party
-require 'chunky_png'
+require 'pixelart/base'
 require 'csvreader'
 
 
 ## extra stdlibs
-require 'fileutils'
 require 'optparse'
 
 
@@ -63,15 +62,20 @@ module Mooncats
         ## note: cut-off optionial 0x
         cat_id = cat_id[2..-1]   if cat_id.start_with?( '0x')
 
+        cat = Image.generate( cat_id )
+
         cat_name  = "mooncat-#{cat_id}"
 
         ##  if zoom - add x2,x4 or such
-        cat_name << "_x#{opts[:zoom]}"   if opts[:zoom] != 1
+        if opts[:zoom] != 1
+          cat = cat.zoom( opts[:zoom] )
+          cat_name << "_x#{opts[:zoom]}"
+        end
 
         path  = "#{opts[:outdir]}/#{cat_name}.png"
         puts "==> (#{index+1}/#{args.size}) minting mooncat 0x#{cat_id}; writing to >#{path}<..."
 
-        Image.generate( cat_id, zoom: opts[:zoom] ).save( path )
+        cat.save( path )
       end
 
       puts "done"
