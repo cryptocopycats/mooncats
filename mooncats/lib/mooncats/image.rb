@@ -90,8 +90,8 @@ def initialize( design: 0,
                                design.height,
                                ChunkyPNG::Color::TRANSPARENT ) # why? why not?
 
-    design.each_with_index do |row, x|
-      row.each_with_index do |color, y|
+    design.each_with_index do |row, y|
+      row.each_with_index do |color, x|
         if color > 0
           pixel = colors[ color ]
           img[x,y] = pixel
@@ -206,55 +206,6 @@ end  # (nested) class Bar
 end # class Image
 
 
-
-class Design
-def self.find( num )   ## pass in design index number (0 to 127)
-  ## todo: add cache (memoize) - why? why not?
-  str = DESIGNS[ num ]
-  design = parse( str )
-
-  puts "    design ##{num} (#{design.width}x#{design.height})"
-  ## pp design.data
-  ## puts
-
-  design
-end
-
-
-def self.parse( str )
-  data = str.split('.')
-  new( data )
-end
-
-def initialize( data )
- ## todo: add cache (memoize) - why? why not?
-
- ## note: map colors encoded as a string to an array of integers - why? why not?
- ##  e.g. "00011111133344411"
- ##          =>
- ##       [0,0,0,1,1,1,1,1,1,3,3,3,4,4,4,1,1]
-
- @data = data.map do |row|
-            row.chars.map do |color|
-             color.to_i
-            end
-          end
-end
-
-## note: design data stored mirrored (data.size is the width NOT height)
-def width() @data.size; end
-def height() @data[0].size; end
-
-def data() @data; end
-
-def each_with_index( &blk )
-  ## note: y,x is reversed - keep for now
-  ##  (todo/fix later? and "pivot" raw data on init - why? why not?)
-  @data.each_with_index do |row, x|
-    blk.call( row, x )
-  end
-end
-end # class Design
 
 end # module Mooncats
 

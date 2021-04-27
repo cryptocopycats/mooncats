@@ -12,6 +12,7 @@ require 'optparse'
 require 'mooncats/version'    # note: let version always go first
 require 'mooncats/designs'
 require 'mooncats/structs'
+require 'mooncats/design'
 require 'mooncats/image'
 require 'mooncats/composite'
 require 'mooncats/dataset'
