@@ -25,7 +25,7 @@ pp meta['mint']
 pp meta
 
 
-mooncats = Mooncats::Dataset.read( '../mooncatrescue/*.csv' )
+mooncats = Mooncats::Dataset.read( '../../mooncatrescue/*.csv' )
 
 puts "  #{mooncats.size}  mooncat(s)"
 #=> 25440 mooncat(s)

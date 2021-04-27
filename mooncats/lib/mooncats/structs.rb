@@ -67,12 +67,15 @@ class Metadata
     def facing
       @facing ||= FACINGS[ bits[1,1].to_i(2) ]  ## use desgin > 63 instead  - why? why not?
     end
-    def face
+    def face   ## face (expression)
       @face ||= FACES[ bits[2,2].to_i(2) ]
     end
-    def fur
+    alias_method :expression, :face
+
+    def fur    ## fur (pattern)   - add pattern alias - why? why not?
       @fur ||= FURS[ bits[4,2].to_i(2) ]
     end
+
     def pose
       @poses ||= POSES[ bits[6,2].to_i(2) ]   ##  use design % 4 instead - why? why not?
     end
@@ -104,7 +107,10 @@ class Metadata
   def rgb() [r,g,b]; end   ## add rgb shortcut helper - why? why not?
 
   def invert?() k >= 128; end
-  def pattern() k % 64; end   ## treat facing left|right as the same
+  alias_method :pale?, :invert?
+
+
+  def pattern() k % 64; end   ## treat facing left|right as the same - note: conflicts with fur (pattern) - find a better/different name?
 
 
   def hue
@@ -172,6 +178,7 @@ class Metadata
 
   def facing()  design.facing; end
   def face()    design.face; end
+  alias_method :expression, :face
   def fur()     design.fur; end
   def pose()    design.pose; end
 
@@ -187,23 +194,25 @@ class Metadata
   # enable array-like access to - why? why not?
   def []( key )
      case key.to_sym
-     when :id      then id
-     when :genesis then genesis?
-     when :k       then k
-     when :r       then r
-     when :g       then g
-     when :b       then b
-     when :rgb     then rgb
-     when :invert  then invert?
-     when :hue     then hue
-     when :color   then color
-     when :design  then design.to_i
-     when :pattern then pattern
-     when :facing  then facing
-     when :face    then face
-     when :fur     then fur
-     when :pose    then pose
-     when :year    then year    # note: from more via timestamp
+     when :id         then id
+     when :genesis    then genesis?
+     when :k          then k
+     when :r          then r
+     when :g          then g
+     when :b          then b
+     when :rgb        then rgb
+     when :invert,
+          :pale       then invert?
+     when :hue        then hue
+     when :color      then color
+     when :design     then design.to_i
+     when :pattern    then pattern
+     when :facing     then facing
+     when :face,
+          :expression then face
+     when :fur        then fur
+     when :pose       then pose
+     when :year       then year    # note: from more via timestamp
      else
        @more[ key ]
      end

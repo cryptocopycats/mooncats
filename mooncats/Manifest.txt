@@ -6,6 +6,7 @@ bin/mooncat
 lib/mooncats.rb
 lib/mooncats/composite.rb
 lib/mooncats/dataset.rb
+lib/mooncats/design.rb
 lib/mooncats/designs.rb
 lib/mooncats/image.rb
 lib/mooncats/structs.rb

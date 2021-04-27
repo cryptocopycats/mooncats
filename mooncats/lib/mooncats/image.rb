@@ -2,33 +2,6 @@
 module Mooncats
 
 
-
-###
-## todo/fix/cleanup - (re)use pixelart color helpers? possible? why? why not?
-
-class Color     ## convenience helper to "abstract" ChunkyPNG usage away in "outside" (not internal) sample code
-  def self.to_hex(color, include_alpha: false)
-    if include_alpha
-      '#%08x' % color
-    else
-      '#%06x' % [color >> 8]
-    end
-  end
-
-  def self.rgb_to_hsl( r, g, b )
-    rgb = ChunkyPNG::Color.rgb( r, g, b )
-    hsl = ChunkyPNG::Color.to_hsl( rgb )
-    hsl
-  end
-
-  def self.from_hsl( h, s, l )
-    ChunkyPNG::Color.from_hsl( h, s, l )
-  end
-end  # class Color
-
-
-
-
 class Image <  Pixelart::Image
 
 
@@ -81,14 +54,14 @@ def initialize( design: 0,
               end
 
     ## note: first color (index 0) is always nil (default/white or transparent)
-    colors = [ nil ] + parse_colors( colors )
+    colors = [ nil ] + colors.map { |color| Pixelart::Color.parse( color ) }
 
     ## puts " colors:"
     ## pp colors
 
   img = ChunkyPNG::Image.new( design.width,
-                               design.height,
-                               ChunkyPNG::Color::TRANSPARENT ) # why? why not?
+                              design.height,
+                              ChunkyPNG::Color::TRANSPARENT ) # why? why not?
 
     design.each_with_index do |row, y|
       row.each_with_index do |color, x|
@@ -151,61 +124,6 @@ def self.derive_palette( r: nil, g: nil, b: nil,
 end
 
 
-######
-# helpers
-def parse_colors( colors )
-  ## convert into ChunkyPNG::Color
-  colors.map { |color| parse_color( color ) }
-end
-
-def parse_color( color )
-  if color.is_a?( Integer )  ## e.g. Assumess ChunkyPNG::Color.rgb() or such
-    color ## pass through as is 1:1
-  elsif color.is_a?(String)
-    ## note: return an Integer !!! (not a Color class or such!!! )
-    ChunkyPNG::Color.from_hex( color )
-  else
-    raise ArgumentError, "unknown color format; cannot parse - expected rgb hex string e.g. d3d3d3"
-  end
-end
-
-
-
-
-
-
-class Bar ## (nested) class inside Image (e.g. Image::Bar)
-  ## make a color bar
-  def initialize( colors:,  zoom: 24 )
-    @bar = ChunkyPNG::Image.new( colors.size*zoom,
-                                 zoom,
-                                 ChunkyPNG::Color::WHITE ) # why? why not?
-
-    colors.each_with_index do |color,i|
-      zoom.times do |x|
-        zoom.times do |y|
-          @bar[x+zoom*i,y] = color
-        end
-      end
-    end
-  end # def initialize
-
-  #####
-  # (image) delegates
-  ##   todo/check: add some more??
-  def save( path, constraints = {} )
-    @bar.save( path, constraints )
-  end
-
-  def width()        @bar.width; end
-  def height()       @bar.height; end
-
-  ## return image ref - use a different name - why? why not?
-  def image()        @bar; end
-end  # (nested) class Bar
 end # class Image
-
-
-
 end # module Mooncats
 

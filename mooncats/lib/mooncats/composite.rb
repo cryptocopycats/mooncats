@@ -10,7 +10,7 @@ CANVAS_HEIGHT = 24
 def initialize( cols=100, rows=255 )
     @composite = ChunkyPNG::Image.new( cols*CANVAS_WIDTH,
                                        rows*CANVAS_HEIGHT,
-                                       ChunkyPNG::Color::WHITE ) # why? why not? - use TRANSPARENT (is default?)
+                                       ChunkyPNG::Color::TRANSPARENT ) # why? why not? - use TRANSPARENT (is default?)
 
     ## todo/check - find a better name for cols/rows - why? why not?
     @cols = cols

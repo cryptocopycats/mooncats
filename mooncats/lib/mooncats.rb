@@ -94,4 +94,11 @@ module Mooncats
 MoonCats = Mooncats
 
 
+
+
+###
+# note: for convenience auto include Pixelart namespace!!! - why? why not?
+include Pixelart
+
+
 puts Mooncats.banner    # say hello
