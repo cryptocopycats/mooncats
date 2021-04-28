@@ -3,7 +3,7 @@
 #    ruby ./doppelganger.rb
 
 
-
+$LOAD_PATH.unshift( "../mooncats/lib" )
 require 'mooncats'
 
 
@@ -13,20 +13,31 @@ require 'mooncats'
 # All designs use Smile (Face) & Left (Facing).
 
 def doppelganger( id, colors: )
-  [8,9,10,11, 12,13,14,15].each do |design|
-    cat_proto = Mooncats::Image.new( design: design,
-                                     colors: colors )
-    [1,3].each do |zoom|
-      cat = cat_proto   ## reuse same original "prototype" image for all zooms
-      name = '%03d' % design
-      if zoom > 1
-         cat = cat.zoom( zoom )
-         name << "x#{zoom}"
-      end
-      cat.save( "i/#{id}_#{name}.png" )
-    end
-  end
+  [8,9,10,11, 12,13,14,15].each do |design_num|
+    ## note: quick hack? - use empty string ('') for original series for now
+    ['', 'v2'].each do |series|
+       design = case series
+                when 'v2' then DESIGNS_V2[ design_num ]
+                else           DESIGNS[ design_num ]
+                end
+       cat_proto    = Mooncats::Image.new( design: design,
+                                           colors: colors )
+       [1,3].each do |zoom|
+         cat = cat_proto   ## reuse same original "prototype" image for all zooms
+         name = '%03d' % design_num
+         name << series
+
+         if zoom > 1
+           cat = cat.zoom( zoom )
+           name << "x#{zoom}"
+         end
+         cat.save( "i/#{id}_#{name}.png" )
+       end # each zoom
+    end # each series
+  end # each design
 end
+
+
 
 
 ## kitty 979522
@@ -72,3 +83,6 @@ doppelganger( 1673550, colors: [
   '#44e192',
   '#fcdf35'
 ])
+
+
+puts "bye"

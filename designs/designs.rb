@@ -14,9 +14,8 @@ designs.each do |num|
     puts "#{num}"
 
     name = '%03d' % num
-    text = File.open( "#{rootdir}/#{series}/#{name}.txt", 'r:utf-8') {|f| f.read }
+    design = Mooncats::Design.read( "#{rootdir}/#{series}/#{name}.txt" )
 
-    design = Mooncats::Design.parse( text )
     cat = Mooncats::Image.new( design: design, colors: colors )
     cat.save( "#{rootdir}/i/#{series}-#{name}.png" )
     cat.zoom(4).save( "#{rootdir}/i/#{series}-#{name}x4.png" )

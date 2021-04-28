@@ -5,7 +5,8 @@
 
 require 'mooncats'
 
-puts " #{DESIGNS.size} design(s)"   #=> 128 design(s)
+
+puts "==> #{DESIGNS.size} design(s)"   #=> 128 design(s)
 
 design =  Mooncats::Design.find( 0 )
 pp design
@@ -52,6 +53,18 @@ design = Mooncats::Design.parse( <<TXT )
 0 0 0 0 1 5 1 1 5 1 1 5 3 1 1 0 0 0 0 0 0
 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
 TXT
+dump( design )
+
+
+puts "==> #{DESIGNS_V2.size} design(s)"   #=> 128 design(s)
+
+
+puts "---"
+design = Mooncats::Design.parse( DESIGNS_V2[8] )
+dump( design )
+
+puts "---"
+design = Mooncats::Design.parse( DESIGNS_V2[11] )
 dump( design )
 
 

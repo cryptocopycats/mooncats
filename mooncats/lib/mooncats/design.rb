@@ -15,6 +15,10 @@ def self.find( num )   ## pass in design index number (0 to 127)
 end
 
 
+def self.read( path )
+  text = File.open( path, 'r:utf-8') { |f| f.read }
+  parse( text )
+end
 
 def self.parse( str )
   ## support original "classic" compact single-line format
@@ -86,7 +90,38 @@ def to_txt
   end
   buf
 end
-
-
 end # class Design
+
+
+
+###############
+## todo/check:
+##    find a better way to (auto?) include more designs?
+class DesignSeries    ## find a better name for class - why? why not?
+  def self.build( dir )
+    data = {}
+    paths =  Dir.glob( "#{dir}/**.txt" )
+    paths.each do |path|
+      basename = File.basename( path, File.extname( path ) )
+      num  = basename.to_i( 10 )  ## use base 10 (e.g. 001 => 1, 002 => 2, etc.)
+      text = File.open( path, 'r:utf-8' ) { |f| f.read }
+      ## todo/check: auto-parse "ahead of time" here
+      ##              or keep "raw" text - why? why not?
+      data[ num ] = text
+    end
+    data
+  end
+
+  def initialize( dir )
+    @dir = dir  # e.g. "#{Mooncats.root}/config/v2"
+  end
+
+  def data
+    ## note: lazy load / build on first demand only
+    @data ||= self.class.build( @dir )
+  end
+
+  def [](index) data[ index ]; end
+  def size()    data.size; end
+end   # class DesignSeries
 end # module Mooncats
