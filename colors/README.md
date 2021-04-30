@@ -14,6 +14,17 @@ Let's try
 All designs use Smile (Face) & Left (Facing). Let's do the original ~24x24 pixel size and 3x format.
 
 
+**Update**
+
+Added two new color series (V2 and CryptoCats).
+What's news?
+
+The V2 series tries to improve the original Mooncat designs and
+the new CryptoCats series uses original CryptoCats designs.
+
+See [**Mooncat Design Series**](https://github.com/cryptocopycats/design.mooncats) for more. Let's go.
+
+
 
 ## 24 Karat Gold
 
@@ -48,6 +59,38 @@ And voila!
 ![](i/24_karat_gold_013x3.png)
 ![](i/24_karat_gold_014x3.png)
 ![](i/24_karat_gold_015x3.png)
+
+V2
+
+![](i/24_karat_gold_008v2.png)
+![](i/24_karat_gold_009v2.png)
+![](i/24_karat_gold_010v2.png)
+![](i/24_karat_gold_011v2.png)
+![](i/24_karat_gold_008v2x3.png)
+![](i/24_karat_gold_009v2x3.png)
+![](i/24_karat_gold_010v2x3.png)
+![](i/24_karat_gold_011v2x3.png)
+
+![](i/24_karat_gold_012v2.png)
+![](i/24_karat_gold_013v2.png)
+![](i/24_karat_gold_014v2.png)
+![](i/24_karat_gold_015v2.png)
+![](i/24_karat_gold_012v2x3.png)
+![](i/24_karat_gold_013v2x3.png)
+![](i/24_karat_gold_014v2x3.png)
+![](i/24_karat_gold_015v2x3.png)
+
+CryptoCats
+
+![](i/24_karat_gold_000cryptocats.png)
+![](i/24_karat_gold_001cryptocats.png)
+![](i/24_karat_gold_002cryptocats.png)
+![](i/24_karat_gold_003cryptocats.png)
+![](i/24_karat_gold_000cryptocatsx3.png)
+![](i/24_karat_gold_001cryptocatsx3.png)
+![](i/24_karat_gold_002cryptocatsx3.png)
+![](i/24_karat_gold_003cryptocatsx3.png)
+
 
 
 
@@ -84,6 +127,37 @@ And voila!
 ![](i/vivid_green_013x3.png)
 ![](i/vivid_green_014x3.png)
 ![](i/vivid_green_015x3.png)
+
+V2
+
+![](i/vivid_green_008v2.png)
+![](i/vivid_green_009v2.png)
+![](i/vivid_green_010v2.png)
+![](i/vivid_green_011v2.png)
+![](i/vivid_green_008v2x3.png)
+![](i/vivid_green_009v2x3.png)
+![](i/vivid_green_010v2x3.png)
+![](i/vivid_green_011v2x3.png)
+
+![](i/vivid_green_012v2.png)
+![](i/vivid_green_013v2.png)
+![](i/vivid_green_014v2.png)
+![](i/vivid_green_015v2.png)
+![](i/vivid_green_012v2x3.png)
+![](i/vivid_green_013v2x3.png)
+![](i/vivid_green_014v2x3.png)
+![](i/vivid_green_015v2x3.png)
+
+CryptoCats
+
+![](i/vivid_green_000cryptocats.png)
+![](i/vivid_green_001cryptocats.png)
+![](i/vivid_green_002cryptocats.png)
+![](i/vivid_green_003cryptocats.png)
+![](i/vivid_green_000cryptocatsx3.png)
+![](i/vivid_green_001cryptocatsx3.png)
+![](i/vivid_green_002cryptocatsx3.png)
+![](i/vivid_green_003cryptocatsx3.png)
 
 
 
@@ -122,6 +196,27 @@ And voila!
 ![](i/valentine_014x3.png)
 ![](i/valentine_015x3.png)
 
+V2
+
+![](i/valentine_008v2.png)
+![](i/valentine_009v2.png)
+![](i/valentine_010v2.png)
+![](i/valentine_011v2.png)
+![](i/valentine_008v2x3.png)
+![](i/valentine_009v2x3.png)
+![](i/valentine_010v2x3.png)
+![](i/valentine_011v2x3.png)
+
+![](i/valentine_012v2.png)
+![](i/valentine_013v2.png)
+![](i/valentine_014v2.png)
+![](i/valentine_015v2.png)
+![](i/valentine_012v2x3.png)
+![](i/valentine_013v2x3.png)
+![](i/valentine_014v2x3.png)
+![](i/valentine_015v2x3.png)
+
+
 
 ##  Ferrari
 
@@ -158,6 +253,29 @@ And voila!
 ![](i/ferrari_014x3.png)
 ![](i/ferrari_015x3.png)
 
+V2
+
+![](i/ferrari_008v2.png)
+![](i/ferrari_009v2.png)
+![](i/ferrari_010v2.png)
+![](i/ferrari_011v2.png)
+![](i/ferrari_008v2x3.png)
+![](i/ferrari_009v2x3.png)
+![](i/ferrari_010v2x3.png)
+![](i/ferrari_011v2x3.png)
+
+![](i/ferrari_012v2.png)
+![](i/ferrari_013v2.png)
+![](i/ferrari_014v2.png)
+![](i/ferrari_015v2.png)
+![](i/ferrari_012v2x3.png)
+![](i/ferrari_013v2x3.png)
+![](i/ferrari_014v2x3.png)
+![](i/ferrari_015v2x3.png)
+
+
+
+
 
 ## Google
 
@@ -193,9 +311,38 @@ And voila!
 ![](i/google_014x3.png)
 ![](i/google_015x3.png)
 
+V2
+
+![](i/google_008v2.png)
+![](i/google_009v2.png)
+![](i/google_010v2.png)
+![](i/google_011v2.png)
+![](i/google_008v2x3.png)
+![](i/google_009v2x3.png)
+![](i/google_010v2x3.png)
+![](i/google_011v2x3.png)
+
+![](i/google_012v2.png)
+![](i/google_013v2.png)
+![](i/google_014v2.png)
+![](i/google_015v2.png)
+![](i/google_012v2x3.png)
+![](i/google_013v2x3.png)
+![](i/google_014v2x3.png)
+![](i/google_015v2x3.png)
+
 
 
 That's it for now.
+
+
+## Future Directions  - Ideas for Improvments
+
+- Add a new "Black & White" design edition that always "hard-codes" the eyes, nose, mouth in black?
+
+Your Ideas Here
+
+
 
 
 ## Questions? Comments?

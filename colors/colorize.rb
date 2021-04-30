@@ -2,7 +2,7 @@
 #  to run use:
 #    ruby ./colorize.rb
 
-
+$LOAD_PATH.unshift( "../mooncats/lib" )
 require 'mooncats'
 
 
@@ -11,25 +11,58 @@ require 'mooncats'
 # - design 12,13,14,15  - w/ Half/Half Fur - all 4 poses
 # All designs use Smile (Face) & Left (Facing).
 
+
 def colorize( name, colors: )
-  [8,9,10,11, 12,13,14,15].each do |design|
-    cat_proto = Mooncats::Image.new( design: design,
-                                     colors: colors )
-    [1,3].each do |zoom|
-      cat = cat_proto    ## reuse same original "prototype" image for all zooms
-      name = name.downcase.gsub( ' ', '_' )  ## slugify name
 
-      name_plus = '%03d' % design
+  ## note: quick hack? - use empty string ('') for original series for now
+  ['', 'v2', 'cryptocats'].each do |series|
+    designs, design_nums = case series
+                           when 'v2'         then [DESIGNS_V2,         [8,9,10,11, 12,13,14,15]]
+                           when 'cryptocats' then [DESIGNS_CRYPTOCATS, [0,1,2,3]]
+                           else                   [DESIGNS,            [8,9,10,11, 12,13,14,15]]
+                           end
 
-      if zoom > 1
-        cat = cat.zoom( zoom )
-        name_plus << "x#{zoom}"
+
+    colors_new = if series == 'cryptocats'
+                   # change color order
+                   #   note: colors off by one (starting with 0!!)
+                   colors_new = colors.dup
+                   colors_new[3] = colors[2]    # base
+                   colors_new[1] = colors[3]    # pattern 1
+                   colors_new[2] = colors[1]    # pattern 2
+                   colors_new
+                 else
+                   colors ## use passed in as is 1:1
+                 end
+
+
+
+    design_nums.each do |design_num|
+      design = designs[ design_num ]
+
+      cat_proto = Mooncats::Image.new( design: design,
+                                       colors: colors_new )
+      [1,3].each do |zoom|
+        cat = cat_proto    ## reuse same original "prototype" image for all zooms
+        name = name.downcase.gsub( ' ', '_' )  ## slugify name
+
+        name_plus = '%03d' % design_num
+        name_plus << series
+
+        if zoom > 1
+          cat = cat.zoom( zoom )
+          name_plus << "x#{zoom}"
+        end
+
+        cat.save( "i/#{name}_#{name_plus}.png" )
       end
-
-      cat.save( "i/#{name}_#{name_plus}.png" )
     end
   end
 end
+
+
+
+
 
 ################
 ## 5 color schemes

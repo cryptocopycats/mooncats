@@ -23,22 +23,15 @@ What's news?
 
 The V2 series tries to improve the original Mooncat designs:
 
-1. The eye color does not really exist in the mooncat design
-Thus, let's change color #5 into the (exclusive) eyes color
+1. The eye color does not really exist in the mooncat design,
+thus, let's change color #5 into the (exclusive) eyes color
 by adding a pixel each to the eyes
 and changing all other color #5 pixels to the color #4.
-2. Let's change the nose and mouth to use the outline color #1 - that is, usually the most "dark-ish / black-ish" color.
+2. Let's change the nose and mouth to use the outline color #1, that is, usually the most "dark-ish / black-ish" color.
 
 The new CryptoCats series uses original CryptoCats designs.
 
-See [**Mooncat Design Series**](https://github.com/cryptocopycats/design.mooncats) for more.
-
-
-
-
-
-
-Let's go.
+See [**Mooncat Design Series**](https://github.com/cryptocopycats/design.mooncats) for more. Let's go.
 
 
 ## Kitty #979522 Doppelganger
