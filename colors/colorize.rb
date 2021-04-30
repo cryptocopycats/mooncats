@@ -2,7 +2,6 @@
 #  to run use:
 #    ruby ./colorize.rb
 
-$LOAD_PATH.unshift( "../mooncats/lib" )
 require 'mooncats'
 
 
@@ -136,3 +135,5 @@ colorize( 'Google', colors: [
 ##  add support for 3 color schemes?
 ##     use 2nd color to auto-derive missing 2 colors - why? why not?
 
+
+puts "bye"

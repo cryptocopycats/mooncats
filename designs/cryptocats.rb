@@ -1,4 +1,3 @@
-$LOAD_PATH.unshift( "../mooncats/lib" )
 require 'mooncats'
 
 
