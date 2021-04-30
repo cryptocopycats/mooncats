@@ -88,6 +88,19 @@ V2
 ![](i/979522_015v2x3.png)
 
 
+CryptoCats
+
+![](i/979522_000cryptocats.png)
+![](i/979522_001cryptocats.png)
+![](i/979522_002cryptocats.png)
+![](i/979522_003cryptocats.png)
+![](i/979522_001cryptocatsx3.png)
+![](i/979522_002cryptocatsx3.png)
+![](i/979522_003cryptocatsx3.png)
+![](i/979522_004cryptocatsx3.png)
+
+
+
 For the record - compare to the original kitty #979522 design:
 
 ![](i/979522.png)

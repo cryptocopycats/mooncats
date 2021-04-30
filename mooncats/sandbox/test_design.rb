@@ -59,12 +59,18 @@ dump( design )
 puts "==> #{DESIGNS_V2.size} design(s)"   #=> 128 design(s)
 
 
-puts "---"
 design = Mooncats::Design.parse( DESIGNS_V2[8] )
 dump( design )
 
 puts "---"
 design = Mooncats::Design.parse( DESIGNS_V2[11] )
+dump( design )
+
+
+
+puts "==> #{DESIGNS_CRYPTOCATS.size} design(s)"   #=> 128 design(s)
+
+design = Mooncats::Design.parse( DESIGNS_CRYPTOCATS[0] )
 dump( design )
 
 

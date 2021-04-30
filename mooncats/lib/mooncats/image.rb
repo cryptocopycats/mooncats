@@ -38,39 +38,60 @@ class << self
 end
 
 
+def self.read( path )   ## convenience helper
+  img = ChunkyPNG::Image.from_file( path )
+  new( img )
+end
 
-def initialize( design: 0,
-                colors: COLORS_GENESIS_WHITE )
 
-    design =  if design.is_a?( String )
-                 Design.parse( design )
-              elsif design.is_a?( Array )
-                 Design.new( design )
-              elsif design.is_a?( Design )
-                 design  ## pass through as is 1:1
-              else  ## assume integer nuber
-                 design_num = design  ## note: for convenience "porcelain" param is named design (NOT design_num)
-                 Design.find( design_num )
-              end
 
-    ## note: first color (index 0) is always nil (default/white or transparent)
-    colors = [ nil ] + colors.map { |color| Pixelart::Color.parse( color ) }
+def initialize( initial=nil, design: nil,
+                             colors: nil )
+    if initial
+      ## pass image through as-is
+      img = inital
+    else
+      design ||= 0
+      colors ||= COLORS_GENESIS_WHITE
 
-    ## puts " colors:"
-    ## pp colors
+      design =  if design.is_a?( String )
+                  Design.parse( design )
+                elsif design.is_a?( Array )
+                   Design.new( design )
+                elsif design.is_a?( Design )
+                   design  ## pass through as is 1:1
+                else  ## assume integer nuber
+                   design_num = design  ## note: for convenience "porcelain" param is named design (NOT design_num)
+                   Design.find( design_num )
+                end
 
-  img = ChunkyPNG::Image.new( design.width,
-                              design.height,
-                              ChunkyPNG::Color::TRANSPARENT ) # why? why not?
+      ## note: first color (index 0) is always nil (default/white or transparent)
+      colors = [ nil ] + colors.map { |color| Pixelart::Color.parse( color ) }
 
-    design.each_with_index do |row, y|
-      row.each_with_index do |color, x|
-        if color > 0
-          pixel = colors[ color ]
-          img[x,y] = pixel
-        end # has color?
-      end # each row
-    end # each data
+      ## puts " colors:"
+      ## pp colors
+
+      img = ChunkyPNG::Image.new( design.width,
+                                  design.height,
+                                  ChunkyPNG::Color::TRANSPARENT ) # why? why not?
+
+      design.each_with_index do |row, y|
+        row.each_with_index do |color, x|
+          if color > 0
+            pixel = colors[ color ]
+
+            ## note: special built-in color palette black & white "hack"
+            ##         only active if colors 6 & 7 NOT defined
+            ##    color 6 => black (000000 / ff) rgb / a(lpha)
+            ##    color 7 => white (ffffff / ff) rgb / a(lpha)
+            pixel = 0xff       if pixel.nil? && color == 6
+            pixel = 0xffffffff if pixel.nil? && color == 7
+
+            img[x,y] = pixel
+          end # has color?
+        end # each row
+      end # each data
+    end
 
     super( img.width, img.height, img )
 end

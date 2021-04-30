@@ -92,8 +92,8 @@ end ## module Mooncats
 
 
 ### add more built-in (load on demand) design series / collections
-DESIGNS_V2 = Mooncats::DesignSeries.new( "#{Mooncats.root}/config/v2" )
-
+DESIGNS_V2         = Mooncats::DesignSeries.new( "#{Mooncats.root}/config/v2" )
+DESIGNS_CRYPTOCATS = Mooncats::DesignSeries.new( "#{Mooncats.root}/config/cryptocats" )
 
 
 ### add some convenience shortcuts

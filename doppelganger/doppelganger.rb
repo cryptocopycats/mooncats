@@ -12,29 +12,52 @@ require 'mooncats'
 # - design 12,13,14,15  - w/ Half/Half Fur - all 4 poses
 # All designs use Smile (Face) & Left (Facing).
 
-def doppelganger( id, colors: )
-  [8,9,10,11, 12,13,14,15].each do |design_num|
-    ## note: quick hack? - use empty string ('') for original series for now
-    ['', 'v2'].each do |series|
-       design = case series
-                when 'v2' then DESIGNS_V2[ design_num ]
-                else           DESIGNS[ design_num ]
-                end
-       cat_proto    = Mooncats::Image.new( design: design,
-                                           colors: colors )
-       [1,3].each do |zoom|
-         cat = cat_proto   ## reuse same original "prototype" image for all zooms
-         name = '%03d' % design_num
-         name << series
 
-         if zoom > 1
-           cat = cat.zoom( zoom )
-           name << "x#{zoom}"
-         end
-         cat.save( "i/#{id}_#{name}.png" )
-       end # each zoom
-    end # each series
-  end # each design
+
+def doppelganger( id, colors: )
+  ## note: quick hack? - use empty string ('') for original series for now
+  ['', 'v2', 'cryptocats'].each do |series|
+    designs, design_nums = case series
+                           when 'v2'         then [DESIGNS_V2,         [8,9,10,11, 12,13,14,15]]
+                           when 'cryptocats' then [DESIGNS_CRYPTOCATS, [0,1,2,3]]
+                           else                   [DESIGNS,            [8,9,10,11, 12,13,14,15]]
+                           end
+
+
+    colors_new = if series == 'cryptocats'
+                   # change color order
+                   #   note: colors off by one (starting with 0!!)
+                   colors_new = colors.dup
+                   colors_new[3] = colors[2]    # base
+                   colors_new[1] = colors[3]    # pattern 1
+                   colors_new[2] = colors[1]    # pattern 2
+                   colors_new
+                 else
+                   colors ## use passed in as is 1:1
+                 end
+
+
+
+    design_nums.each do |design_num|
+      design = designs[ design_num ]
+
+
+      cat_proto  = Mooncats::Image.new( design: design,
+                                        colors: colors_new )
+
+      name = '%03d' % design_num
+      name << series
+
+      [1,3].each do |zoom|
+        cat = cat_proto
+        if zoom > 1
+          cat = cat.zoom( zoom )
+          name += "x#{zoom}"
+        end
+        cat.save( "i/#{id}_#{name}.png" )
+      end # each zoom
+    end # each design
+  end # each series
 end
 
 
