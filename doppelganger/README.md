@@ -16,6 +16,30 @@ and, thus, reusing your CryptoKitty colors and choosing one of the 128 design yo
 
 
 
+**Update**
+
+Added two new doppelganger series (V2 and CryptoCats).
+What's news?
+
+The V2 series tries to improve the original Mooncat designs:
+
+1. The eye color does not really exist in the mooncat design
+Thus, let's change color #5 into the (exclusive) eyes color
+by adding a pixel each to the eyes
+and changing all other color #5 pixels to the color #4.
+2. Let's change the nose and mouth to use the outline color #1 - that is, usually the most "dark-ish / black-ish" color.
+
+The new CryptoCats series uses original CryptoCats designs.
+
+See [**Mooncat Design Series**](https://github.com/cryptocopycats/design.mooncats) for more.
+
+
+
+
+
+
+Let's go.
+
 
 ## Kitty #979522 Doppelganger
 
@@ -94,10 +118,10 @@ CryptoCats
 ![](i/979522_001cryptocats.png)
 ![](i/979522_002cryptocats.png)
 ![](i/979522_003cryptocats.png)
+![](i/979522_000cryptocatsx3.png)
 ![](i/979522_001cryptocatsx3.png)
 ![](i/979522_002cryptocatsx3.png)
 ![](i/979522_003cryptocatsx3.png)
-![](i/979522_004cryptocatsx3.png)
 
 
 
@@ -173,6 +197,18 @@ V2
 ![](i/1925652_014v2x3.png)
 ![](i/1925652_015v2x3.png)
 
+CryptoCats
+
+![](i/1925652_000cryptocats.png)
+![](i/1925652_001cryptocats.png)
+![](i/1925652_002cryptocats.png)
+![](i/1925652_003cryptocats.png)
+![](i/1925652_000cryptocatsx3.png)
+![](i/1925652_001cryptocatsx3.png)
+![](i/1925652_002cryptocatsx3.png)
+![](i/1925652_003cryptocatsx3.png)
+
+
 
 For the record - compare to the original kitty #1925652 design:
 
@@ -215,25 +251,44 @@ And voila!
 ![](i/1673550_014x3.png)
 ![](i/1673550_015x3.png)
 
+
+V2
+
+![](i/1673550_008v2.png)
+![](i/1673550_009v2.png)
+![](i/1673550_010v2.png)
+![](i/1673550_011v2.png)
+![](i/1673550_008v2x3.png)
+![](i/1673550_009v2x3.png)
+![](i/1673550_010v2x3.png)
+![](i/1673550_011v2x3.png)
+
+![](i/1673550_012v2.png)
+![](i/1673550_013v2.png)
+![](i/1673550_014v2.png)
+![](i/1673550_015v2.png)
+![](i/1673550_012v2x3.png)
+![](i/1673550_013v2x3.png)
+![](i/1673550_014v2x3.png)
+![](i/1673550_015v2x3.png)
+
+
+CryptoCats
+
+![](i/1673550_000cryptocats.png)
+![](i/1673550_001cryptocats.png)
+![](i/1673550_002cryptocats.png)
+![](i/1673550_003cryptocats.png)
+![](i/1673550_000cryptocatsx3.png)
+![](i/1673550_001cryptocatsx3.png)
+![](i/1673550_002cryptocatsx3.png)
+![](i/1673550_003cryptocatsx3.png)
+
 For the record - compare to the original kitty #1673550 design:
 
 ![](i/1673550.png)
 
 
-
-
-##  Future Directions - Comments Welcome
-
-Really not too bad for a first rough quick & dirty doppelganger experiment.
-
-
-Ideas for future improvements:
-
-- The eye color does not really exist in the mooncat design.
-  Change  the design (eyes always hard-coded in "black-ish" outline color 1) to use "new" color 6 (?) for eye color or better add new eye shadow (already present in some designs)?
-- In the mooncat design the mouth (and nose) is NOT always hard-coded in "black-ish" outline color 1) like in the cryptokitties design BUT
-uses color 5. Change the design to use color 1 for the mouth?
-- Your ideas here?  Please, tell.
 
 
 
