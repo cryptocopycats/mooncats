@@ -11,8 +11,8 @@ Let's use the original online pixel tool (see => [**mooncatrescue.com/pixeledito
 to draw all-black sun glasses in 12x3 size.
 
 
-Tip: Use the print buttoin to export the pixel art into
-a ready-to-cut-n-paste matrix.
+Tip: Use the print button to export the sun glasses into
+a ready-to-cut-n-paste pixel matrix.
 
 
 Let's try:
@@ -35,7 +35,7 @@ Resulting in:
 
 
 
-Let's add the shades to the first four designs (0, 1, 2, 4)
+Let's add the shades to the first four designs (0, 1, 2, 3)
 with the four poses, that is, standing (21×17),
 sleeping (20×14), pouncing (17×22),
 and stalking (20×21).
@@ -89,3 +89,123 @@ Resulting in:
 ![](i/coolcat-002_1x4.png)
 ![](i/coolcat-003_1x4.png)
 
+
+
+Let's draw and try another sunglasses design:
+
+``` ruby
+shades2 = Image.parse( <<TXT, colors: ['000000', '690C45', '8C0D5B', 'AD2160'] )
+0 1 1 1 1 1 0 1 1 1 1 1
+0 1 2 2 2 1 1 1 2 2 2 1
+1 1 3 3 3 1 0 1 3 3 3 1
+0 1 4 4 4 1 0 1 4 4 4 1
+0 0 1 1 1 0 0 0 1 1 1 0
+TXT
+
+shades2.save( './shades2.png' )
+shades2.zoom(4).save( './shades2x4.png' )
+```
+
+Resulting in:
+
+![](i/shades2.png)
+![](i/shades2x4.png)
+
+And
+
+![](i/coolcat-000_2.png)
+![](i/coolcat-001_2.png)
+![](i/coolcat-002_2.png)
+![](i/coolcat-003_2.png)
+
+![](i/coolcat-000_2x4.png)
+![](i/coolcat-001_2x4.png)
+![](i/coolcat-002_2x4.png)
+![](i/coolcat-003_2x4.png)
+
+
+
+And let's draw and try another sunglasses design:
+
+``` ruby
+shades3 = Image.parse( <<TXT, colors: ['000000', '990033', 'FF0066', 'FF3366'] )
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+0 1 1 2 2 2 2 1 2 2 2 2 1 1 0
+0 0 1 3 3 3 3 1 3 3 3 3 1 0 0
+0 0 1 4 4 1 1 1 1 1 4 4 1 0 0
+0 0 1 1 1 1 0 0 0 1 1 1 1 0 0
+TXT
+
+shades3.save( './shades3.png' )
+shades3.zoom(4).save( './shades3x4.png' )
+```
+
+Resulting in:
+
+![](i/shades3.png)
+![](i/shades3x4.png)
+
+And
+
+![](i/coolcat-000_3.png)
+![](i/coolcat-001_3.png)
+![](i/coolcat-002_3.png)
+![](i/coolcat-003_3.png)
+
+![](i/coolcat-000_3x4.png)
+![](i/coolcat-001_3x4.png)
+![](i/coolcat-002_3x4.png)
+![](i/coolcat-003_3x4.png)
+
+
+
+And let's draw and try another sunglasses design:
+
+``` ruby
+shades4 = Image.parse( <<TXT, colors: ['000000', '000766', '0010e6'] )
+1 1 1 1 1 1 1 1 1 1 1 1
+0 0 1 2 2 1 0 1 2 2 1 0
+0 0 1 3 3 1 0 1 3 3 1 0
+0 0 0 1 1 0 0 0 1 1 0 0
+TXT
+
+shades4.save( './shades4.png' )
+shades4.zoom(4).save( './shades4x4.png' )
+```
+
+Resulting in:
+
+![](i/shades4.png)
+![](i/shades4x4.png)
+
+And
+
+![](i/coolcat-000_4.png)
+![](i/coolcat-001_4.png)
+![](i/coolcat-002_4.png)
+![](i/coolcat-003_4.png)
+
+![](i/coolcat-000_4x4.png)
+![](i/coolcat-001_4x4.png)
+![](i/coolcat-002_4x4.png)
+![](i/coolcat-003_4x4.png)
+
+
+
+That's it for now.
+
+
+## Future Directions  - Ideas for Improvments
+
+- Paste the mooncat image into a bigger (extended) canvas before adding the sunglasses.
+ Why?  On some design (with an offset of -1 or -2) some parts of the sunglasses on the left-side get "cut-off".
+
+
+Your Ideas Here
+
+
+
+
+## Questions? Comments?
+
+Post them on the [mooncatrescue reddit](https://old.reddit.com/r/mooncatrescue). Thanks.
