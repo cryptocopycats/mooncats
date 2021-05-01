@@ -1,3 +1,8 @@
+###########
+#  to run use:
+#    ruby ./coolcats.rb
+
+
 require 'mooncats'
 
 
@@ -90,15 +95,20 @@ head_shades.each_with_index.each do |shades, i|
 
      cat = Mooncats::Image.new( design: design, colors: colors )
 
+     ## note: extend canvas by 2 pixel
+     canvas = Image.new( cat.width+2, cat.height )
+     canvas.compose!( cat, 2, 0 )
+
+
      head_x,   head_y   = head_offsets[ design % 4 ]
      offset_x, offset_y = shades[:offset]
 
-     cat.compose!( shades[:image], head_x+offset_x,
-                                   head_y+offset_y )
+     canvas.compose!( shades[:image], 2+head_x+offset_x,
+                                        head_y+offset_y )
 
      name = '%03d' % design
-     cat.save( "./i/coolcat-#{name}_#{i+1}.png" )
-     cat.zoom(4).save( "./i/coolcat-#{name}_#{i+1}x4.png" )
+     canvas.save( "./i/coolcat-#{name}_#{i+1}.png" )
+     canvas.zoom(4).save( "./i/coolcat-#{name}_#{i+1}x4.png" )
   end
 end
 

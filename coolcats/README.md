@@ -11,6 +11,8 @@ Let's use the original online pixel tool (see => [**mooncatrescue.com/pixeledito
 to draw all-black sun glasses in 12x3 size.
 
 
+![](i/pixel-shades1.png)
+
 Tip: Use the print button to export the sun glasses into
 a ready-to-cut-n-paste pixel matrix.
 
@@ -93,6 +95,8 @@ Resulting in:
 
 Let's draw and try another sunglasses design:
 
+![](i/pixel-shades2.png)
+
 ``` ruby
 shades2 = Image.parse( <<TXT, colors: ['000000', '690C45', '8C0D5B', 'AD2160'] )
 0 1 1 1 1 1 0 1 1 1 1 1
@@ -126,6 +130,8 @@ And
 
 
 And let's draw and try another sunglasses design:
+
+![](i/pixel-shades3.png)
 
 ``` ruby
 shades3 = Image.parse( <<TXT, colors: ['000000', '990033', 'FF0066', 'FF3366'] )
@@ -161,6 +167,8 @@ And
 
 And let's draw and try another sunglasses design:
 
+![](i/pixel-shades4.png)
+
 ``` ruby
 shades4 = Image.parse( <<TXT, colors: ['000000', '000766', '0010e6'] )
 1 1 1 1 1 1 1 1 1 1 1 1
@@ -192,9 +200,10 @@ And
 
 
 
-That's it for now.
+That's it for now.  Now design your own sunglasses. Yes, you can!
 
 
+<!--
 ## Future Directions  - Ideas for Improvments
 
 - Paste the mooncat image into a bigger (extended) canvas before adding the sunglasses.
@@ -202,7 +211,7 @@ That's it for now.
 
 
 Your Ideas Here
-
+-->
 
 
 
